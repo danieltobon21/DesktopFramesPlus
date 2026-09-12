@@ -129,3 +129,49 @@ fork en lugar del repo del autor.
   programa** y hacer backup de `Profiles\Default\` (el app reescribe `frames.json`
   ante cualquier cambio, y una build vieja que guarde encima puede volver a borrar
   claves — por ejemplo el grosor 0 antes de este fix).
+
+
+---
+
+# Beta 2.7.8.x (rama `dani/beta`)
+
+Rama para probar, en paralelo y sin tocar la instalación estable, la línea que upstream
+tiene en `main` (2.7.8.x). Base: `fix/border-persistence` + el mismo tratamiento que la
+estable (icono y marca TobonFrames, `Interop/WshLateBound.cs`, sin `COMReference`), con dos
+cambios propios de esta línea:
+
+- El nombre del producto se reescribe en los **nueve packs de idioma** (`Localization/*.resx`),
+  no en literales sueltos, porque 2.7.8.x ya está localizado. El About (EN + ES) explica que
+  es una build personal y conserva intactos créditos y licencia MIT.
+- Aislamiento para convivir con la estable: mutex propio (`TobonFramesBeta_Mutex_v1`), root de
+  registro propio (`HKCU\SOFTWARE\Desktop_Frames_Plus_Beta`), nombre de arranque propio y log
+  propio (`TobonFramesBeta.log`).
+
+## Qué añade respecto a la estable
+
+| Función | Detalle |
+| --- | --- |
+| UI en español | 8 packs: es, de, fr, it, pl, pt, ru, zh-Hans (verificado leyendo el satélite `es`) |
+| Plugins | `IFramePlugin` + calculadora, terminal, IP, rendimiento, saturación de cola, VU meter, slideshow |
+| Tabs por frame | motor `TabManager.cs` (en 2.7.7.294 solo existían las claves en el JSON) |
+| Otros | `TaskbarAnalyzer`, mejoras de snap y de opciones |
+
+## Instalación de prueba
+
+| Cosa | Ruta |
+| --- | --- |
+| Build beta | `C:\TobonFrames-beta\TobonFramesBeta.exe` (2.7.8.359) |
+| Datos (copia) | `C:\TobonFrames-beta\Profiles\Default\` con `Language: "es"` |
+| Acceso directo | `TobonFrames (beta).lnk` en el Escritorio |
+| No registrada | no toca el arranque automático ni el root de registro de la estable |
+
+Para probarla: cerrar la estable (bandeja → Exit) y abrir la beta desde el acceso directo. Las
+dos a la vez dibujan los mismos frames duplicados. Para promoverla: rebautizar `AssemblyName`
+a `TobonFrames`, quitar el `Beta` de mutex/registro/log, subir la versión y publicar sobre
+`C:\TobonFrames`, y ajustar `ngdfcs/getversion.json` en `main`.
+
+## PR a upstream
+
+Rama `upstream-fix-border-thickness` (un commit, solo `FrameDataManager.cs`): el fix de
+`ConsolidateKey` sin nada del rebranding, para cerrar el issue #120. La URL de comparación
+está en el mensaje de push; el PR se abre desde el fork.
