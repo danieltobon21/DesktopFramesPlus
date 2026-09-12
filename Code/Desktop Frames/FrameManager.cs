@@ -4500,7 +4500,12 @@ namespace Desktop_Frames
             try
             {
                 string borderColorName = frame.FrameBorderColor?.ToString();
-                int customThickness = Convert.ToInt32(frame.FrameBorderThickness?.ToString() ?? "2");
+                // Fallback for a frame without the property: the app-wide default, not a
+                // hardcoded 2. int.TryParse also swallows empty/garbage values instead of
+                // letting Convert.ToInt32 throw and land in the catch below.
+                int customThickness = int.TryParse(frame.FrameBorderThickness?.ToString(), out int parsedThickness)
+                    ? parsedThickness
+                    : FrameAppearanceDefaults.BorderThickness;
                 if (!string.IsNullOrEmpty(borderColorName))
                 {
                     var borderColor = Utility.GetColorFromName(borderColorName);
