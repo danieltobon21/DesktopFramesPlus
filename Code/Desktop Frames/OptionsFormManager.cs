@@ -35,7 +35,7 @@ namespace Desktop_Frames
 
                 _optionsWindow = new Window
                 {
-                    Title = "Desktop Frames + Options",
+                    Title = "TobonFrames Options",
                     Width = 800,
                     Height = 850,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
@@ -1064,9 +1064,9 @@ namespace Desktop_Frames
             Border d = new Border { Background = new SolidColorBrush(Color.FromRgb(255, 248, 225)), BorderBrush = new SolidColorBrush(Color.FromRgb(255, 193, 7)), BorderThickness = new Thickness(0, 1, 0, 0), Padding = new Thickness(20) };
             Grid.SetRow(d, 3);
             StackPanel sp = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
-            sp.Children.Add(new TextBlock { Text = "Support the Maintenance and Enhancement of This Project by Donating", FontSize = 13, Foreground = new SolidColorBrush(Color.FromRgb(102, 77, 3)), VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(0, 0, 15, 0) });
-            Button b = new Button { Content = "♥ Donate via PayPal", FontSize = 14, Background = new SolidColorBrush(Color.FromRgb(255, 193, 7)), Foreground = Brushes.White, BorderThickness = new Thickness(0), Padding = new Thickness(15, 6, 15, 6), Cursor = Cursors.Hand };
-            b.Click += (s, e) => { try { Process.Start(new ProcessStartInfo { FileName = "https://www.paypal.com/donate/?hosted_button_id=PPLWC66UC8Q42", UseShellExecute = true }); } catch { } };
+            sp.Children.Add(new TextBlock { Text = "TobonFrames - build local de Desktop Frames + (MIT). Cambios y avisos:", FontSize = 13, Foreground = new SolidColorBrush(Color.FromRgb(102, 77, 3)), VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(0, 0, 15, 0) });
+            Button b = new Button { Content = "⌥ GitHub del fork", FontSize = 14, Background = new SolidColorBrush(Color.FromRgb(255, 193, 7)), Foreground = Brushes.White, BorderThickness = new Thickness(0), Padding = new Thickness(15, 6, 15, 6), Cursor = Cursors.Hand };
+            b.Click += (s, e) => { try { Process.Start(new ProcessStartInfo { FileName = "https://github.com/danieltobon21/DesktopFramesPlus", UseShellExecute = true }); } catch { } };
             sp.Children.Add(b); d.Child = sp; mainGrid.Children.Add(d);
         }
 
@@ -1103,7 +1103,7 @@ namespace Desktop_Frames
         {
             try
             {
-                string p = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Desktop_Frames.log");
+                string p = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "TobonFrames.log");
                 if (System.IO.File.Exists(p)) Process.Start(new ProcessStartInfo { FileName = p, UseShellExecute = true });
                 else MessageBoxesManager.ShowOKOnlyMessageBoxForm("Log file not found.", "Information");
             }

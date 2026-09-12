@@ -26,7 +26,7 @@ namespace Desktop_Frames
             {
                 var aboutWindow = new Window
                 {
-                    Title = "About Desktop Frames +",
+                    Title = "About TobonFrames",
                     Width = 480,
                     Height = 670,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
@@ -140,7 +140,7 @@ namespace Desktop_Frames
             try
             {
                 var assembly = Assembly.GetExecutingAssembly();
-                var resourceStream = assembly.GetManifestResourceStream("Desktop_Frames.Resources.logo1.png");
+                var resourceStream = assembly.GetManifestResourceStream("Desktop_Frames.Resources.tobonframes.png");
                 if (resourceStream != null)
                 {
                     BitmapImage bitmap = new BitmapImage();
@@ -179,7 +179,7 @@ namespace Desktop_Frames
 
             TextBlock titleText = new TextBlock
             {
-                Text = "Desktop Frames +",
+                Text = "TobonFrames",
                 FontFamily = new FontFamily("Segoe UI"),
                 FontSize = 22, // Your improved font size
                 FontWeight = FontWeights.Bold,
@@ -242,11 +242,11 @@ namespace Desktop_Frames
 
             // About Section
             CreateSection(contentStack, "About", "Organize your desktop like magic!",
-                "Desktop Frames + creates virtual frames on your desktop, allowing you to group and organize icons in a clean and convenient way.", 20);
+                "TobonFrames creates virtual frames on your desktop so you can group and organize icons in a clean and convenient way.", 20);
 
             // Credits Section
             CreateSection(contentStack, "Credits", null,
-                "Desktop Frames + is an open-source utility for Windows, originally created by HakanKokcu under the name BirdyFences.\n\nDesktop Frames + is maintained by Nikos Georgousis, has been enhanced and optimized for stability and better user experience.", 20);
+                "TobonFrames is a personal build of Desktop Frames +, the open-source Windows utility originally created by HakanKokcu as BirdyFences and maintained by Nikos Georgousis.\n\nDistributed under the MIT License; copyright notices and credits are kept as in the original project.", 20);
 
             // Support Development Section
             CreateSupportSection(contentStack);
@@ -318,7 +318,7 @@ namespace Desktop_Frames
             // Title
             TextBlock titleBlock = new TextBlock
             {
-                Text = "Support Development",
+                Text = "Project",
                 FontFamily = new FontFamily("Segoe UI"),
                 FontSize = 18, // Your improved font size
                 FontWeight = FontWeights.Bold,
@@ -332,40 +332,6 @@ namespace Desktop_Frames
             {
                 Orientation = Orientation.Horizontal,
                 Margin = new Thickness(0, 8, 0, 0)
-            };
-
-            // Donate Button
-            Button donateButton = new Button
-            {
-                Content = "♥ Donate via PayPal",
-                Height = 36,
-                Padding = new Thickness(16, 0, 16, 0),
-                FontFamily = new FontFamily("Segoe UI"),
-                FontSize = 14, // Your improved font size
-                FontWeight = FontWeights.Bold,
-                Foreground = Brushes.White,
-                Background = new SolidColorBrush(Color.FromRgb(255, 102, 51)), // Orange
-                BorderThickness = new Thickness(0),
-                Cursor = Cursors.Hand,
-                Margin = new Thickness(0, 0, 12, 0)
-            };
-
-            donateButton.MouseEnter += (s, e) => donateButton.Background = new SolidColorBrush(Color.FromRgb(230, 90, 40));
-            donateButton.MouseLeave += (s, e) => donateButton.Background = new SolidColorBrush(Color.FromRgb(255, 102, 51));
-            donateButton.Click += (s, e) =>
-            {
-                try
-                {
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = "https://www.paypal.com/donate/?hosted_button_id=PPLWC66UC8Q42",
-                        UseShellExecute = true
-                    });
-                }
-                catch (Exception ex)
-                {
-                    LogManager.Log(LogManager.LogLevel.Error, LogManager.LogCategory.UI, $"Error opening PayPal link: {ex.Message}");
-                }
             };
 
             // GitHub Button
@@ -391,7 +357,7 @@ namespace Desktop_Frames
                 {
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = "https://github.com/limbo666/DesktopFramesPlus",
+                        FileName = "https://github.com/danieltobon21/DesktopFramesPlus",
                         UseShellExecute = true
                     });
                 }
@@ -401,7 +367,6 @@ namespace Desktop_Frames
                 }
             };
 
-            buttonsPanel.Children.Add(donateButton);
             buttonsPanel.Children.Add(githubButton);
             section.Children.Add(buttonsPanel);
             parent.Children.Add(section);
@@ -732,7 +697,7 @@ namespace Desktop_Frames
                     {
                         Process.Start(new ProcessStartInfo
                         {
-                            FileName = "https://www.paypal.com/donate/?hosted_button_id=PPLWC66UC8Q42",
+                            FileName = "https://github.com/danieltobon21/DesktopFramesPlus",
                             UseShellExecute = true
                         });
                         easterWindow.Close();

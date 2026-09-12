@@ -330,7 +330,7 @@ namespace Desktop_Frames
                 LogManager.Log(LogManager.LogLevel.Info, LogManager.LogCategory.General, "Reloading all frames...");
 
                 // 1. Life Support
-                Window lifeSupport = MessageBoxesManager.CreateWaitWindow("Desktop Frames +", "Refreshing configuration...");
+                Window lifeSupport = MessageBoxesManager.CreateWaitWindow("TobonFrames", "Refreshing configuration...");
                 lifeSupport.Show();
                 System.Windows.Forms.Application.DoEvents();
 
@@ -788,7 +788,7 @@ namespace Desktop_Frames
                     LogManager.Log(LogManager.LogLevel.Info, LogManager.LogCategory.UI,
                         $"Creating life support window - about to close {framesToClose} of {totalFrameCount} total frames");
 
-                    lifeSupportWindow = MessageBoxesManager.CreateWaitWindow("Desktop Frames +", "Refreshing frames, please wait...");
+                    lifeSupportWindow = MessageBoxesManager.CreateWaitWindow("TobonFrames", "Refreshing frames, please wait...");
                     lifeSupportWindow.Show();
                 }
 
@@ -4104,7 +4104,7 @@ namespace Desktop_Frames
             {
                 try
                 {
-                    string logPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Desktop_Frames.log");
+                    string logPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "TobonFrames.log");
                     if (System.IO.File.Exists(logPath))
                     {
                         System.IO.File.Delete(logPath);
@@ -4397,7 +4397,7 @@ namespace Desktop_Frames
                 var noteFrame = new
                 {
                     Id = Guid.NewGuid().ToString(), // Unique ID
-                    Title = "Desktop Frames + Startup Tips", // Explicit Name
+                    Title = "TobonFrames Startup Tips", // Explicit Name
                     X = 20.0,   // Positioned below the data frame
                     Y = 200.0,  // Data frame ends then this frame begins
                     Width = 555.0,

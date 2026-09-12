@@ -425,11 +425,11 @@ namespace Desktop_Frames
                 var values = GetProgramManagementValues();
                 string programPath = Assembly.GetEntryAssembly()?.Location ?? "";
                 string programDir = System.IO.Path.GetDirectoryName(programPath) ?? "";
-                string exportFilePath = System.IO.Path.Combine(programDir, "Desktop Frames + Registry Values.txt");
+                string exportFilePath = System.IO.Path.Combine(programDir, "TobonFrames Registry Values.txt");
 
                 using (var writer = new System.IO.StreamWriter(exportFilePath))
                 {
-                    writer.WriteLine("Desktop Frames Plus - Registry Values Export");
+                    writer.WriteLine("TobonFrames - Registry Values Export");
                     writer.WriteLine($"Generated: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
                     writer.WriteLine(new string('-', 50));
                     writer.WriteLine();
@@ -575,7 +575,7 @@ namespace Desktop_Frames
                     if (runKey != null)
                     {
                         bool hadOldStartup = false;
-                        string[] oldStartupNames = { "Desktop Fences +", "DesktopFences", "Desktop Fences" };
+                        string[] oldStartupNames = { "TobonFrames", "Desktop Fences +", "DesktopFences", "Desktop Fences" };
 
                         foreach (string oldName in oldStartupNames)
                         {
@@ -586,7 +586,7 @@ namespace Desktop_Frames
                             }
                         }
 
-                        if (hadOldStartup) runKey.SetValue("Desktop Frames +", $"\"{currentExePath}\"");
+                        if (hadOldStartup) runKey.SetValue("TobonFrames", $"\"{currentExePath}\"");
                     }
                 }
 
