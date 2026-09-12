@@ -116,7 +116,7 @@ namespace Desktop_Frames
                                             <ColumnDefinition Width='*'/>
                                         </Grid.ColumnDefinitions>
                                         <Border Grid.Column='0' Background='#151515'>
-                                            <Image Source='pack://application:,,,/Resources/DesktopFramesVertical.png' Stretch='Uniform' VerticalAlignment='Top' Margin='0,5,0,0'/>
+                                            <Image Source='pack://application:,,,/Resources/TobonFramesVertical.png' Stretch='Uniform' VerticalAlignment='Top' Margin='0,5,0,0'/>
                                         </Border>
                                         <ScrollViewer Grid.Column='1' Margin='2,0,0,0' VerticalScrollBarVisibility='Hidden'>
                                             <ItemsPresenter KeyboardNavigation.DirectionalNavigation='Cycle'/>

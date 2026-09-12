@@ -68,16 +68,12 @@ namespace Desktop_Frames
                 Grid rootGrid = new Grid();
                 rootGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto }); // Header
                 rootGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) }); // Content
-                rootGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto }); // Footer
 
                 // HEADER: Logo, Title, Version, Close Button
                 CreateHeader(rootGrid);
 
                 // CONTENT: Scrollable content area
                 CreateContent(rootGrid);
-
-                // FOOTER: Hand Water Pump section
-                CreateFooter(rootGrid);
 
                 mainBorder.Child = rootGrid;
 
@@ -543,104 +539,6 @@ namespace Desktop_Frames
             soundCreditsBlock.Inlines.Add(new System.Windows.Documents.Run("pexels.com") { FontWeight = FontWeights.Bold });
 
             parent.Children.Add(soundCreditsBlock);
-        }
-
-        private static void CreateFooter(Grid rootGrid)
-        {
-            Border footerBorder = new Border
-            {
-                Background = new SolidColorBrush(Color.FromRgb(220, 220, 235)),
-                Height = 60,
-                Padding = new Thickness(10, 10, 10, 10)
-            };
-
-            // Centered container for logo and text
-            StackPanel centerPanel = new StackPanel
-            {
-                Orientation = Orientation.Horizontal,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
-            };
-
-            // Calculate maximum logo size (footer height minus vertical padding)
-            int maxLogoSize = 40; // 60px footer - 10px top padding - 10px bottom padding
-
-            // HWP Logo placeholder
-            Border logoPlaceholder = new Border
-            {
-                Width = maxLogoSize,
-                Height = maxLogoSize,
-                Background = new SolidColorBrush(Color.FromRgb(66, 133, 244)),
-                CornerRadius = new CornerRadius(4),
-                Margin = new Thickness(0, 0, 12, 0),
-                Cursor = Cursors.Hand
-            };
-
-            // Load HWP logo if available
-            try
-            {
-                var assembly = Assembly.GetExecutingAssembly();
-                var resourceStream = assembly.GetManifestResourceStream("Desktop_Frames.Resources.HWP_Logo.png");
-                if (resourceStream != null)
-                {
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.StreamSource = resourceStream;
-                    bitmap.EndInit();
-
-                    Image logoImage = new Image
-                    {
-                        Source = bitmap,
-                        Width = maxLogoSize,
-                        Height = maxLogoSize,
-                        Stretch = Stretch.Uniform
-                    };
-                    logoPlaceholder.Child = logoImage;
-                    logoPlaceholder.Background = Brushes.Transparent;
-                }
-            }
-            catch { } // Use placeholder if logo fails to load
-
-            logoPlaceholder.MouseLeftButtonDown += (s, e) => OpenHWPLink();
-
-            // Hand Water Pump text
-            TextBlock hwpText = new TextBlock
-            {
-                Text = "Hand Water Pump",
-                FontFamily = new FontFamily("Segoe UI"),
-                FontSize = 18,
-                FontWeight = FontWeights.Bold,
-                Foreground = Brushes.OrangeRed,
-                VerticalAlignment = VerticalAlignment.Center,
-                Cursor = Cursors.Hand
-            };
-
-            hwpText.MouseLeftButtonDown += (s, e) => OpenHWPLink();
-
-            centerPanel.Children.Add(logoPlaceholder);
-            centerPanel.Children.Add(hwpText);
-            footerBorder.Child = centerPanel;
-
-            Grid.SetRow(footerBorder, 2);
-            rootGrid.Children.Add(footerBorder);
-        }
-
-  
-
-        private static void OpenHWPLink()
-        {
-            try
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "http://www.georgousis.info",
-                    UseShellExecute = true
-                });
-            }
-            catch (Exception ex)
-            {
-                LogManager.Log(LogManager.LogLevel.Error, LogManager.LogCategory.UI, $"Error opening HWP link: {ex.Message}");
-            }
         }
 
         /// <summary>

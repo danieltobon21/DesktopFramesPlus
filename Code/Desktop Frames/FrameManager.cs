@@ -1135,7 +1135,7 @@ namespace Desktop_Frames
                                         </Grid.ColumnDefinitions>
                                         
                                     <Border Grid.Column='0' Background='#151515'>
-                                            <Image Source='pack://application:,,,/Resources/DesktopFramesVertical.png' Stretch='Uniform' VerticalAlignment='Top' Margin='0,5,0,0'/>
+                                            <Image Source='pack://application:,,,/Resources/TobonFramesVertical.png' Stretch='Uniform' VerticalAlignment='Top' Margin='0,5,0,0'/>
                                         </Border>
                                         
                                         <ScrollViewer Grid.Column='1' Margin='2,0,0,0' VerticalScrollBarVisibility='Hidden'>
@@ -3329,7 +3329,7 @@ namespace Desktop_Frames
             {
                 try
                 {
-                    string logPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "TobonFramesBeta.log");
+                    string logPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "TobonFrames.log");
                     if (System.IO.File.Exists(logPath))
                     {
                         System.IO.File.Delete(logPath);

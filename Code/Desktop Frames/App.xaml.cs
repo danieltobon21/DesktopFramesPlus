@@ -15,7 +15,7 @@ namespace Desktop_Frames
         private TargetChecker _targetChecker;
         private static bool _desktopIsShown = false;
         private static Mutex _mutex;
-        private const string UNIQUE_APP_NAME = "Global\\TobonFramesBeta_Mutex_v1";
+        private const string UNIQUE_APP_NAME = "Global\\TobonFrames_Mutex_v1";
 
 
 

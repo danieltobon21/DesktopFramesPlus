@@ -8,12 +8,12 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<UseWindowsForms>True</UseWindowsForms>
-		<AssemblyVersion>2.7.8.359</AssemblyVersion>
-		<FileVersion>2.7.8.359</FileVersion>
-		<Version>2.7.8.359</Version>
-		<AssemblyName>TobonFramesBeta</AssemblyName>
-		<AssemblyTitle>TobonFrames (beta)</AssemblyTitle>
-		<Product>TobonFrames Beta</Product>
+		<AssemblyVersion>2.7.8.360</AssemblyVersion>
+		<FileVersion>2.7.8.360</FileVersion>
+		<Version>2.7.8.360</Version>
+		<AssemblyName>TobonFrames</AssemblyName>
+		<AssemblyTitle>TobonFrames</AssemblyTitle>
+		<Product>TobonFrames</Product>
 		<Company>Daniel Tobon</Company>
 		<Description>TobonFrames - desktop icon frames for Windows (fork of Desktop Frames +, MIT)</Description>
 		<ApplicationIcon>Resources\tobonframes.ico</ApplicationIcon>
@@ -30,6 +30,7 @@
 		<None Remove="Resources\36505577-smooth-simple-notification-274738.wav" />
 		<None Remove="Resources\avtr.png" />
 		<None Remove="Resources\DesktopFramesVertical.png" />
+		<None Remove="Resources\TobonFramesVertical.png" />
 		<None Remove="Resources\ding.wav" />
 		<None Remove="Resources\donate.png" />
 		<None Remove="Resources\dot.png" />
@@ -66,7 +67,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Resource Include="Resources\DesktopFramesVertical.png">
+	  <Resource Include="Resources\TobonFramesVertical.png">
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Resource>
 	  <Resource Include="Resources\empty.png">

@@ -16,7 +16,7 @@ namespace Desktop_Frames
         #region Messaging State Management (Remote Info System)
 
         // --- MIGRATED PATHS ---
-        private static readonly string MSG_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\Messaging";
+        private static readonly string MSG_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\Messaging";
 
         public static bool IsMessageDismissed(string msgId)
         {
@@ -89,11 +89,11 @@ namespace Desktop_Frames
         #region Constants
 
         // Registry path for our trigger system
-        private static readonly string REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\InstanceTrigger";
+        private static readonly string REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\InstanceTrigger";
         private static readonly string TRIGGER_VALUE_NAME = "TriggerEffect";
 
         // Registry path for program management values
-        private static readonly string PROGRAM_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\ProgramManagement";
+        private static readonly string PROGRAM_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\ProgramManagement";
 
         // Context Menu Constants
         private const string MENU_PATH = @"Software\Classes\DesktopBackground\Shell\DesktopFrames";
@@ -104,7 +104,7 @@ namespace Desktop_Frames
         #region Migration Methods
 
         // Registry path for internal app settings/flags
-        private static readonly string SETTINGS_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\Settings";
+        private static readonly string SETTINGS_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\Settings";
 
         public static bool IsStartupMigrated()
         {
@@ -425,11 +425,11 @@ namespace Desktop_Frames
                 var values = GetProgramManagementValues();
                 string programPath = Assembly.GetEntryAssembly()?.Location ?? "";
                 string programDir = System.IO.Path.GetDirectoryName(programPath) ?? "";
-                string exportFilePath = System.IO.Path.Combine(programDir, "TobonFrames Beta Registry Values.txt");
+                string exportFilePath = System.IO.Path.Combine(programDir, "TobonFrames Registry Values.txt");
 
                 using (var writer = new System.IO.StreamWriter(exportFilePath))
                 {
-                    writer.WriteLine("TobonFrames Beta - Registry Values Export");
+                    writer.WriteLine("TobonFrames - Registry Values Export");
                     writer.WriteLine($"Generated: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
                     writer.WriteLine(new string('-', 50));
                     writer.WriteLine();
@@ -555,7 +555,7 @@ namespace Desktop_Frames
 
                 // 1. Recursive Data Migration (Stats, Info, Settings)
                 string oldBaseKeyName = @"SOFTWARE\Desktop_Fences_Plus";
-                string newBaseKeyName = @"SOFTWARE\Desktop_Frames_Plus_Beta";
+                string newBaseKeyName = @"SOFTWARE\Desktop_Frames_Plus";
 
                 using (var oldBaseKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(oldBaseKeyName))
                 {

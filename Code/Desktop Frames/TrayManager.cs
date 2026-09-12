@@ -29,7 +29,7 @@ namespace Desktop_Frames
         public static bool IsStartWithWindows { get; private set; }
 
         private const string RUN_KEY_PATH = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
-        private const string APP_NAME = "TobonFrames Beta"; // --- FIX: Ensures new registry entries use the correct name ---
+        private const string APP_NAME = "TobonFrames"; // --- FIX: Ensures new registry entries use the correct name ---
 
         private static readonly List<HiddenFrame> HiddenFrames = new List<HiddenFrame>();
     
