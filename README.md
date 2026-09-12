@@ -1,153 +1,75 @@
-<h1 align="center">Desktop Frames +</h1>
-<p align="center"><i>Organize your desktop like magic!</i></p>
-<p align="center">
-<img src="https://img.shields.io/github/downloads/limbo666/DesktopFramesPlus/total?style=flat-square" alt="Total Downloads"/>
-<img src="https://img.shields.io/github/stars/limbo666/DesktopFramesPlus?style=flat-square" alt="Stars"/>
-  <img src="https://img.shields.io/github/forks/limbo666/DesktopFramesPlus?style=flat-square" alt="Forks"/>
-  <img src="https://img.shields.io/github/issues/limbo666/DesktopFramesPlus?style=flat-square" alt="Issues"/>
-   <img src="https://img.shields.io/github/last-commit/limbo666/DesktopFramesPlus?style=flat-square" alt="Last Commit"/>
-</p>
+# TobonFrames
 
-<p align="center">
+> **Build personal de [Desktop Frames +](https://github.com/limbo666/DesktopFramesPlus)** para Windows:
+> organiza los iconos del escritorio en marcos («frames») que se comportan como paneles
+> translúcidos, con atajos, portales a carpetas, notas y plugins.
+> Portable, *framework-dependent* (.NET 8) y **sin borde por defecto**.
 
-  <img width="150" height="150" alt="Desktop Frames150" src="https://github.com/user-attachments/assets/a88f7771-8ae8-4be8-86dc-4e8aabfa5a77" />
+Este repositorio es un fork de [`limbo666/DesktopFramesPlus`](https://github.com/limbo666/DesktopFramesPlus)
+(MIT), mantenido para uso propio. La línea que se compila y se instala es la rama
+**`dani/release`**, basada en el código 2.7.8.x del upstream más los arreglos y la marca
+TobonFrames descritos abajo.
 
-</p>
+## Qué cambia respecto al upstream
 
+| Tema | Detalle |
+| --- | --- |
+| **Fix del borde** | El upstream borraba `FrameBorderThickness` de `frames.json` en cada guardado cuando valía `0` (el helper `ConsolidateKey` se llamaba con la propia clave oficial como si fuera legacy y trataba `0` como vacío). Al reabrir, la clave faltante se rellenaba con el default `2`: el borde «volvía solo» ([issue #120](https://github.com/limbo666/DesktopFramesPlus/issues/120)). Corregido, y el PR está propuesto upstream. |
+| **Sin borde por defecto** | `FrameAppearanceDefaults` concentra los valores de apariencia (`BorderThickness = 0`): los frames nuevos, los importados y los que tengan la clave perdida nacen sin borde. |
+| **Compila con solo el .NET SDK** | Se eliminaron los `COMReference` de `IWshRuntimeLibrary` (obligaban a TlbImp/AxImp del Windows SDK: `dotnet build` fallaba con MSB4803). `WScript.Shell` se usa por IDispatch en `Interop/WshLateBound.cs`. Compila y publica con `dotnet publish`, y hay CI en `.github/workflows/build.yml`. |
+| **UI en español** | 8 packs de idioma (es, de, fr, it, pl, pt, ru, zh-Hans). El idioma se elige en Opciones → General. |
+| **Marca propia** | Nombre, icono (multi-tamaño, monocromo + un acento), banner del menú de los frames, About, log, mutex y registros propios. About sin botón de PayPal ni footer «Hand Water Pump»; los créditos originales y la licencia MIT se conservan. |
+| **Actualizaciones** | El chequeo de versión lee `ngdfcs/getversion.json` de este fork, no del upstream. |
 
-##  ⚠️ Important Notice: Welcome to Desktop Frames + 
+## Compilar
 
-You may have noticed a **new name** and a **new logo**. Recently, this repository was targeted by a trademark complaint from a large commercial software company regarding our name (and icon).
+Requiere el [SDK de .NET 8](https://dotnet.microsoft.com/download/dotnet/8.0) en Windows.
 
-To protect this repository from being suspended and to ensure this tool remains completely free and open-source for the community, I was forced to rebrand. We are now officially **Desktop Frames +**.
+```powershell
+git clone -b dani/release https://github.com/danieltobon21/DesktopFramesPlus.git
+cd DesktopFramesPlus\Code
+dotnet publish "Desktop Frames\Desktop Frames.csproj" -c Release -o ..\dist
+```
 
-Thank you to everyone who helped this project reach 500+ stars.  
-Your support is the reason this tool exists, and corporate pressure won't stop me from improving it.
+La salida (`dist\TobonFrames.exe` + `TobonFrames.dll` + dependencias) es framework-dependent:
+el equipo necesita el runtime de .NET 8 (el escritorio de Windows ya lo trae).
 
-A short **how to upgrade guide** can be found on the following link:
-  https://github.com/limbo666/DesktopFramesPlus/blob/main/HowToUpgradeToDesktopFramesPlus.md
+## Instalar y actualizar
 
-## Support Me
+1. Extrae el contenido del paquete en una carpeta de usuario (por ejemplo `C:\TobonFrames`).
+2. Ejecuta `TobonFrames.exe`. Al primer arranque se crean `Profiles\Default\` con los datos.
+3. Para actualizar: cierra la aplicación y sobrescribe los archivos **sin tocar `Profiles\`**.
 
-If this project has helped you, please consider supporting its development! Your contribution directly impacts how fast and far this project grows.
+Los datos y la configuración viven en `Profiles\<perfil>\`:
 
-Maintaining and improving this tool takes time, effort, and resources. Donations help me:
-- Dedicate more time to fixing bugs and adding features
-- Cover the cost of tools (like AI assistance that speeds up development)
-- Stay motivated and keep pushing the project forward
+| Archivo | Contenido |
+| --- | --- |
+| `frames.json` | Frames, posiciones, tamaños, apariencia e iconos |
+| `options.json` | Ajustes globales (`Language`, `TintValue`, `AutoHideFrames`, …) |
+| `Shortcuts\` | Los accesos directos propios de los frames |
+| `Backups\` | Copias automáticas diarias |
 
-Your support literally drives the pace of development! Even small contributions mean a lot. Thank you for keeping this project alive and evolving!
+## Ramas
 
-### Continuous Support
-If you'd like to become a regular supporter, Liberapay is a zero-fee platform designed for recurring open-source donations:
+| Rama | Qué es |
+| --- | --- |
+| `dani/release` | **La build oficial** (2.7.8.x + arreglos + marca). Se compila y se despliega. |
+| `dani/beta` | Instantánea previa a la promoción (2.7.8.359). Histórica. |
+| `dani/stable` | La línea anterior, sobre el código del release 2.7.7.294 (2.7.7.295). Histórica. |
+| `fix/border-persistence` | Solo el fix del borde sobre el código dev del upstream. |
+| `upstream-fix-border-thickness` | El fix del borde aislado, listo para el PR upstream. |
+| `main` | Espejo del upstream + el manifiesto de actualizaciones de este fork. |
 
-[![Support via Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/limbo/donate)
+## Notas
 
-### One-Time Tip
-If you prefer to make a single, one-time contribution, you can use PayPal:
+- Los ajustes sin interfaz (por ejemplo `MenuTintValue`, `AllowAutoReposition`) se pueden editar
+  en `options.json`; el upstream los documenta en [`tweaks.md`](tweaks.md).
+- Antes de desplegar una build nueva conviene respaldar `Profiles\`: la aplicación reescribe
+  `frames.json` ante cualquier cambio.
 
-[![Donate](https://raw.githubusercontent.com/limbo666/DesktopFramesPlus/refs/heads/main/Images/paypal.png)](https://www.paypal.com/donate/?hosted_button_id=PPLWC66UC8Q42)
+## Licencia y créditos
 
-
-##  About Desktop Frames +
-
-
-Desktop Frames + creates **virtual Frames** on your desktop, allowing you to group and organize icons in a clean and convenient way. With enhanced visual effects and right-click options, it aims to provide a more polished and customizable user interface.
-
-**Desktop Frames+** is an open-source desktop icon management software, originally created by HakanKokcu under the name BirdyFences.
-
-This project is a continuation and substantial modification of the original BirdyFences codebase, which was licensed under the MIT License at the time of forking. 
-
-Desktop Frames+ has been significantly enhanced and optimized for improved performance, stability, and user experience, while respecting the terms of the original license and acknowledging the original author.
-
-
-##  Version History  
-**$\color{green}{\text{The list of changes is moved here:}}$**    
-https://github.com/limbo666/DesktopFramesPlus/blob/main/VersionHistory.md
-
-##  Manual  
-**$\color{blue}{\text{A simple how to use guide is located here:}}$**   
-[https://github.com/limbo666/DesktopFramesPlus/blob/main/desktop_Frames_simple_manual.md](https://github.com/limbo666/DesktopFramesPlus/blob/main/desktop_frames_simple_manual.md)
-
-
-##  Tips 
-**$\color{red}{\text{Also some advanced usage tips:}}$**  
-https://github.com/limbo666/DesktopFramesPlus/blob/main/TIPS.md
-<br> Read them before starting an issue. 
-
-
-
-
-## Features
-
--   **Multiple Frame Types:** Create Data Frames for custom shortcuts, Portal Frames that actively mirror folder contents (with internal navigation and filters), and Note Frames for quick text.  
--   **Tabs Engine:** Keep your desktop clean by organizing shortcuts into multiple tabs within a single frame, complete with tab overflow management.
--   **Workspace Profiles:** Create independent layouts for different workflows (e.g., Work, Gaming). Switch profiles manually via hotkeys, or use Profile Automation to switch automatically when specific programs are launched.
--   **Smart Desktop Engine:** Automatically sort and move incoming files into specific Portal Frames or folders based on custom user rules.
--   **SpotSearch:** A built-in quick-search pane invoked by a hotkey to instantly find and launch shortcuts across all your frames.  
--   **Dynamic Visibility:** Temporarily "Peek Behind" frames to see the desktop, "Rollup" frames to hide their contents, or enable Auto-hide to conceal frames after a period of inactivity.    
--   **Focus Mode:** Highlight a specific frame using the tray menu or a hotkey combination. 
--   **Universal Support:** Fully supports standard files, folders, web links, MS Store apps, Steam games, and Spotify URIs. Includes advanced execution options like "Run as Administrator" and "Run as different user".
--   **Theming:** Customize individual frame background colors, set global tint levels, or use **Chameleon Mode** to automatically match your frames to your wallpaper's dominant color.   
--   **Launch Animations:** Select from multiple visual effects (Zoom, Bounce, Fadeout, SlideUp, Rotate, Elastic) when launching applications.
--   **Precision Layouts:** Utilize "Snap to Dimension" for perfect alignment, easily reorder icons with `CTRL + Drag`, and insert blank spacers to position your icons exactly where you want them.
--   **Icon Customization:** Extract and assign custom icons from executables, DLLs, or image files for any shortcut, folder, or web link.
--   **Automated Backups:** Features a daily automatic backup mechanism that saves your layouts, configurations, and shortcuts.   
--   **Export & Import:** Easily move your setup across different computers by exporting individual frames or entire tabs.
--   **Fully Portable:** Utilizes relative paths for files and folders to ensure seamless operation across different environments.
-
-
----
-
-##  Download
-Get the latest release from releases section:
-https://github.com/limbo666/DesktopFramesPlus/releases
-**UPDATE: Release 2.7.7.294 is out**
-
----
-
-##  Installation
->  Compatible with Windows 10/11  
->  Fully portable
-
- - Download the release package
- - Extract the all files contained in zip package into a folder 
- - Run `Desktop Frames.exe` .  
-   _All necessary configuration files and folders will be created on first run._
-   
-**Attention:** Only user-writable locations are compatible.  
-_See (https://github.com/limbo666/DesktopFramesPlus/issues/51)_
-
-
-##  Update existing installation
-
- - Download the release package
- - Extract the all files contained in zip package and overwrite existing int your Desktop Frames + folder 
- - Run `Desktop Frames.exe` .  
-   _Some releases may convert your configuration files and/or folders to be compatible with new functions_  
-   _As a safety measure it is suggested to backup your Desktop Frames + folder before updating_
-
-
----
-
-
-##  License
-
-This project is licensed under the [MIT License](License.md).
-
----
-
-##  Credits
-
-Based on the original **BirdyFences** by HakanKokcu  
-Desktop Frames + is Enhanced and maintained by Nikos Georgousis.  
-Hand Water Pump 2025-2026
-
-
-
-
-
-
-
-
-
+MIT, igual que el proyecto original. TobonFrames es una build personal de **Desktop Frames +**,
+la utilidad de código abierto para Windows creada originalmente por **HakanKokcu** con el nombre
+**BirdyFences** y mantenida por **Nikos Georgousis**. Se conservan intactos los avisos de
+copyright, la autoría y los créditos originales.
