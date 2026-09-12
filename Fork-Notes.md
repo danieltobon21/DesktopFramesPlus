@@ -1,177 +1,113 @@
-# Fork Notes — danieltobon21/DesktopFramesPlus
+# TobonFrames — notas de mantenimiento
 
-Notas de la revisión del fork y de la rama `fix/border-persistence`.
+Documento interno del fork: qué se cambió, dónde vive cada cosa y cómo se compila/despliega.
+Para la descripción pública del proyecto, ver `README.md`.
 
-## 1. El bug del borde (diagnóstico, con evidencia)
+## Estado actual
 
-Síntoma reportado: los frames quedan sin borde, pero al cerrar y volver a abrir el
-programa el borde vuelve con grosor **2**.
+- **Build oficial: 2.7.8.360**, desplegada en `C:\TobonFrames` (Windows 11, Daniel-Work) y en uso
+  diario. Rama: **`dani/release`**.
+- El bug del borde que motivó el fork está corregido y verificado (ver más abajo), y el fix está
+  propuesto upstream como PR.
 
-Cadena de causas, verificada en el código de la versión instalada (**2.7.7.294**,
-`C:\DesktopFrames+\Desktop Frames.dll`) y en los datos reales del perfil
-(`C:\DesktopFrames+\Profiles\Default\frames.json`):
+## Ramas
 
-1. Al guardar, `FrameDataManager.SaveFrameData()` llama a un helper interno
-   `ConsolidateKey(...)` para migrar las claves viejas `Fence*` a `Frame*`.
-2. Ese helper se invocaba pasándole **la propia clave oficial como si fuera una clave
-   legacy**:
+| Rama | Qué es |
+| --- | --- |
+| `dani/release` | **La build oficial** (2.7.8.x + fix + marca TobonFrames). Es la que se compila. |
+| `dani/beta` | Instantánea previa a la promoción (2.7.8.359) con los arreglos previos. Histórica. |
+| `dani/stable` | Línea anterior sobre el código del release 2.7.7.294 (2.7.7.295). Histórica. |
+| `fix/border-persistence` | Solo el fix del borde sobre el código dev del upstream. |
+| `upstream-fix-border-thickness` | El fix aislado (1 commit, 1 archivo) para el PR upstream. |
+| `main` | Espejo del upstream + `ngdfcs/getversion.json`, que es el manifiesto de actualizaciones que lee la app. |
 
-   ```csharp
-   ConsolidateKey("FrameBorderThickness", new[] { "FrameBorderThickness", "FrameBorderThickness" });
-   ```
-
-   y además, en 2.7.7.294, el valor se consideraba válido solo si
-   `ToString() != "" && ToString() != "0"`.
-
-   Resultado: el guardado **borraba** `FrameBorderThickness` del frame y no lo
-   rescataba cuando valía `0`. Lo mismo con `FrameBorderColor`.
-3. En el arranque siguiente, la clave ya no existía, y `MigrateLegacyJson()` la
-   rellenaba con el default **hardcodeado en 2** → borde gris de 2 px otra vez.
-
-Evidencia en los datos en vivo: el `frames.json` del 12/09 15:06 (escrito justo
-después de que el usuario pusiera grosor 0) **no contiene** ni `FrameBorderThickness`
-ni `FrameBorderColor`, mientras que el resto de propiedades sí están.
-
-El fix real ya existe en `main` upstream (commit `3b55bc6`, 2.7.8.358, 27-jul-2026),
-pero **no hay release publicado con él**: el último release es 2.7.7.294 (8-jun-2026),
-que es exactamente el que está instalado. Es decir: no se arregla actualizando; hay
-que compilar desde el código.
-
-## 2. Qué cambia esta rama `fix/border-persistence`
-
-- `FrameDataManager.ConsolidateKey`: reescrito. Ya no borra la clave oficial (se
-  ignoran las entradas legacy que sean iguales a ella), solo migra nombres
-  realmente legacy (`FenceBorderThickness`, `frameBorderThickness`, ...) y **acepta
-  `0` como valor válido**.
-- `FrameAppearanceDefaults.cs` (nuevo): única fuente de verdad para los defaults de
-  apariencia de frame. `BorderThickness = 0` → los frames nuevos, los importados y
-  los que tengan la clave perdida nacen **sin borde**.
-- Se eliminan los `FrameBorderThickness = 2` hardcodeados que había en 5 sitios
-  (`FrameManager.InitializeDefaultFrame` x2, `MigrateLegacyJson`,
-  `ResetAllCustomizations`, constructor de frames nuevos, `AutoOrganizeManager`).
-- `FrameDataManager.ValidateDataTypes`: guardas `ContainsKey` para `Width`/`Height`
-  (antes lanzaba `KeyNotFoundException` y abortaba la validación de ese frame).
-
-Efecto para el usuario: el grosor 0 ahora **persiste**; `Customize → Frame Border
-Thickness = 0` (con Ctrl + Apply para aplicarlo a todos los frames) se queda.
-
-## 3. Roadmap: convertir esto en tu propia herramienta
-
-### a) Mantener el fork sincronizado (recomendado, primero)
+Sincronizar con el upstream cuando publique una versión nueva:
 
 ```bash
 git remote add upstream https://github.com/limbo666/DesktopFramesPlus.git
 git fetch upstream
-git checkout -b dani/main
-git rebase upstream/main        # trae fixes como el de arriba
+git rebase upstream/main        # sobre fix/border-persistence, para la versión dev
 ```
 
-Trabajar siempre en `dani/main` (o ramas por tema) evita pelearse con `main`, que es
-la rama que sigue al upstream.
-
-### b) Compilar tu propia build
-
-La instalación es **framework-dependent** (`.exe` + `Desktop Frames.dll` +
-`runtimeconfig.json`), no self-contained: se puede reemplazar solo el DLL.
-
-```powershell
-winget install Microsoft.DotNet.SDK.8
-dotnet publish "Code\Desktop Frames\Desktop Frames.csproj" -c Release -r win-x64 --self-contained false
-```
-
-El SDK de .NET 8 **no está instalado** hoy en Daniel-Work (solo el runtime 8.0.31),
-por eso hay que instalarlo antes de compilar.
-
-### c) Rebranding (que sea tu copia, no el proyecto del autor)
-
-Puntos concretos donde vive la identidad:
-
-| Qué | Dónde |
-| --- | --- |
-| Nombre del producto, versión, icono | `Desktop Frames.csproj` (`AssemblyName`, `Version`, `ApplicationIcon`) |
-| Iconos de bandeja / ventana | `Resources/logo*.ico` |
-| Enlace a GitHub y botón PayPal | `AboutFormManager.cs` (líneas ~483, ~516, ~671, ~857), `OptionsFormManager.cs` (~1336) |
-| Chequeo de actualizaciones | `RemoteInfoManager.cs` (`MANIFEST_URL` apunta a `limbo666/.../ngdfcs/getversion.json`) |
-| Ruta de registro | `RegistryHelper.cs` → `HKCU\SOFTWARE\Desktop_Frames_Plus\*` (un solo sitio) |
-| Notas legales | `License.md` (MIT: hay que **conservar** el copyright y los créditos a BirdyFences / Nikos Georgousis) |
-
-Truco sin recompilar: `RemoteInfoManager` ya soporta un archivo `developer_repo.txt`
-junto al `.exe` con una URL propia; sirve para apuntar el aviso de actualización a tu
-fork en lugar del repo del autor.
-
-### d) Ajustes que valen la pena en el código
-
-1. **Unificar la lógica de apariencia.** El borde se decide en 4 sitios distintos
-   (creación del frame, `UpdateFrameProperty`, `ApplyFrameBorderSettings`,
-   `ResetAllCustomizations`). Extraer un `FrameAppearance.Apply(win, frame)` único
-   mata toda esta familia de bugs.
-2. **Una sola tubería de migración.** Hoy conviven `FrameDataManager.Initialize`,
-   `ApplySimpleMigrations`, `MigrateLegacyJson` y el `ConsolidateKey`: tres
-   normalizadores de arranque que pueden contradecirse (es lo que pasó aquí).
-3. **`FrameManager.cs` tiene ~12.000 líneas / 450 KB.** Partirlo (frames, menús,
-   drag&drop, portales, notas) hace que cada cambio deje de ser arqueología.
-4. **Opción global "sin borde" / "sin fondo"** (patrón ya usado por
-   `FramesWithNoRoundCorners`, documentado en `tweaks.md`): un ajuste oculto en
-   `options.json` para forzar grosor 0 y tinte 0 a todos los frames sin tocar frame
-   por frame. `TintValue = 0` ya deja el fondo transparente
-   (`Utility.ApplyTintAndColorToFrame`), así que "sin borde + sin fondo" =
-   solo iconos flotando sobre el wallpaper.
-5. **Contexto de menú / instancia única**: nombres de registro y mutex
-   (`Global\DesktopFramesPlus_Mutex_UniqueId_v2`) → cambiarlos si quieres que tu
-   build y la del autor convivan instaladas.
-
-### e) Empaquetado y distribución
-
-- `.github/workflows/release.yml` con `runs-on: windows-latest`, `dotnet publish` y
-  `actions/upload-artifact` o release en tag. Con eso cada push produce un zip
-  instalable propio.
-- Antes de desplegar una build parcheada sobre `C:\DesktopFrames+`: **cerrar el
-  programa** y hacer backup de `Profiles\Default\` (el app reescribe `frames.json`
-  ante cualquier cambio, y una build vieja que guarde encima puede volver a borrar
-  claves — por ejemplo el grosor 0 antes de este fix).
-
-
----
-
-# Beta 2.7.8.x (rama `dani/beta`)
-
-Rama para probar, en paralelo y sin tocar la instalación estable, la línea que upstream
-tiene en `main` (2.7.8.x). Base: `fix/border-persistence` + el mismo tratamiento que la
-estable (icono y marca TobonFrames, `Interop/WshLateBound.cs`, sin `COMReference`), con dos
-cambios propios de esta línea:
-
-- El nombre del producto se reescribe en los **nueve packs de idioma** (`Localization/*.resx`),
-  no en literales sueltos, porque 2.7.8.x ya está localizado. El About (EN + ES) explica que
-  es una build personal y conserva intactos créditos y licencia MIT.
-- Aislamiento para convivir con la estable: mutex propio (`TobonFramesBeta_Mutex_v1`), root de
-  registro propio (`HKCU\SOFTWARE\Desktop_Frames_Plus_Beta`), nombre de arranque propio y log
-  propio (`TobonFramesBeta.log`).
-
-## Qué añade respecto a la estable
-
-| Función | Detalle |
-| --- | --- |
-| UI en español | 8 packs: es, de, fr, it, pl, pt, ru, zh-Hans (verificado leyendo el satélite `es`) |
-| Plugins | `IFramePlugin` + calculadora, terminal, IP, rendimiento, saturación de cola, VU meter, slideshow |
-| Tabs por frame | motor `TabManager.cs` (en 2.7.7.294 solo existían las claves en el JSON) |
-| Otros | `TaskbarAnalyzer`, mejoras de snap y de opciones |
-
-## Instalación de prueba
+## Rutas (Daniel-Work)
 
 | Cosa | Ruta |
 | --- | --- |
-| Build beta | `C:\TobonFrames-beta\TobonFramesBeta.exe` (2.7.8.359) |
-| Datos (copia) | `C:\TobonFrames-beta\Profiles\Default\` con `Language: "es"` |
-| Acceso directo | `TobonFrames (beta).lnk` en el Escritorio |
-| No registrada | no toca el arranque automático ni el root de registro de la estable |
+| Build instalada | `C:\TobonFrames\TobonFrames.exe` (framework-dependent: `.exe` + `.dll`) |
+| Datos de usuario | `C:\TobonFrames\Profiles\Default\` (`frames.json`, `options.json`, `Shortcuts\`) |
+| Clone para compilar | `C:\working-files\DesktopFramesPlus` (rama `dani/release`), salida en `...\dist` |
+| Instalación anterior | `C:\DesktopFrames+` (2.7.7.294, sin usar; se puede borrar) |
+| Backups previos a desplegar | `C:\build\backup-promote-20260912-1617\` (build 2.7.7.295 + `Profiles.zip`) y `C:\build\backup-20260912-1539\` |
+| Arranque automático | `HKCU\...\CurrentVersion\Run` → valor `TobonFrames` |
+| Registro propio | `HKCU\SOFTWARE\Desktop_Frames_Plus\*` (mismo root que la versión anterior, por continuidad) |
 
-Para probarla: cerrar la estable (bandeja → Exit) y abrir la beta desde el acceso directo. Las
-dos a la vez dibujan los mismos frames duplicados. Para promoverla: rebautizar `AssemblyName`
-a `TobonFrames`, quitar el `Beta` de mutex/registro/log, subir la versión y publicar sobre
-`C:\TobonFrames`, y ajustar `ngdfcs/getversion.json` en `main`.
+## Compilar y desplegar
 
-## PR a upstream
+```powershell
+# en Daniel-Work (ya tiene el SDK .NET 8)
+cd C:\working-files\DesktopFramesPlus
+git pull
+cd Code
+dotnet publish "Desktop Frames\Desktop Frames.csproj" -c Release -o ..\dist
+```
 
-Rama `upstream-fix-border-thickness` (un commit, solo `FrameDataManager.cs`): el fix de
-`ConsolidateKey` sin nada del rebranding, para cerrar el issue #120. La URL de comparación
-está en el mensaje de push; el PR se abre desde el fork.
+Para desplegar: cerrar `TobonFrames`, respaldar `Profiles\`, copiar el contenido de `dist\` sobre
+`C:\TobonFrames` (sin tocar `Profiles\` ni `ProfileOptions.json`) y volver a arrancar. El `.exe`
+y el `.dll` conservan el nombre, así que accesos directos, pin de la barra y arranque automático
+siguen funcionando.
+
+Desde SSH la app se lanza en la **sesión del usuario** con una tarea interactiva:
+`schtasks /create /tn "X" /tr "C:\TobonFrames\TobonFrames.exe" /sc once /st 23:59 /it /f` y
+`schtasks /run /tn "X"` (ver la skill `windows-remote-ops`).
+
+## Qué se cambió respecto al upstream
+
+1. **Fix de persistencia del borde** (`FrameDataManager.ConsolidateKey`): se llamaba con la propia
+   clave oficial como si fuera legacy y, en 2.7.7.294, el valor `0` se trataba como vacío. Cada
+   guardado borraba `FrameBorderThickness` y al arrancar `MigrateLegacyJson()` lo rellenaba con el
+   default `2` → el borde «volvía solo» (issue #120). Ahora la clave oficial no se toca, solo se
+   migran los nombres legacy reales y `0` es un valor válido. Reproducido y verificado en la
+   instalación real: poner 0, guardar, cerrar y reabrir → sigue en 0.
+2. **`FrameAppearanceDefaults.cs`**: única fuente de verdad de la apariencia (`BorderThickness = 0`),
+   en lugar de cinco `2` hardcodeados repartidos.
+3. **`ValidateDataTypes`**: guardas `ContainsKey` para `Width`/`Height` (antes lanzaba
+   `KeyNotFoundException` y abortaba la validación de ese frame).
+4. **Sin `COMReference`**: `WScript.Shell` por IDispatch en `Interop/WshLateBound.cs`, así el
+   proyecto compila con solo el .NET SDK (antes exigía TlbImp/AxImp del Windows SDK) y hay CI en
+   `.github/workflows/build.yml`.
+5. **Rebranding**: nombre/producto/icono/banner de menú propios, UI en español (los 8 packs de
+   `Localization/`), mutex, log y nombre de arranque propios, About sin PayPal ni footer «Hand
+   Water Pump», y el chequeo de actualizaciones leyendo el manifiesto de este fork.
+6. **Opciones**: ventana redimensionable (`CanResizeWithGrip` + `MinWidth/MinHeight`) y controles de
+   idioma en un `WrapPanel`, para que el botón de importar paquete no se recorte.
+
+## Verificación hecha
+
+- `dotnet publish`: 0 errores; `TobonFrames.exe` reporta 2.7.8.360 / ProductName TobonFrames.
+- Ciclo **cerrar y reabrir** con la app real: `FrameBorderThickness` sigue en `0` y el archivo se
+  reescribe al arrancar sin perderlo (ese era exactamente el bug).
+- Los packs de idioma: cargando el assembly principal y leyendo la cultura `es`
+  (`AboutTitle` = «Acerca de TobonFrames», etc.).
+- Escaneo de píxeles del escritorio: sin línea de borde alrededor de los frames.
+- CI: workflow `build` en verde.
+
+## Pendientes / ideas
+
+1. `C:\DesktopFrames+` (instalación vieja) se puede borrar cuando no haga falta el rollback.
+2. Opción global «sin borde / sin fondo»: `TintValue = 0` ya deja el fondo transparente, así que
+   la combinación son solo iconos flotando sobre el wallpaper.
+3. Unificar la lógica de apariencia: hoy se decide en cuatro sitios (creación del frame,
+   `UpdateFrameProperty`, `ApplyFrameBorderSettings`, `ResetAllCustomizations`).
+4. Una sola tubería de migración: conviven `FrameDataManager.Initialize`, `ApplySimpleMigrations`,
+   `MigrateLegacyJson` y `ConsolidateKey`.
+5. `FrameManager.cs` (~12.000 líneas) partido por responsabilidades.
+6. Ajustes que existen sin interfaz (`AllowAutoReposition`, `EnableDimensionSnap`, `AutoRollTime`,
+   `FramesFadeOutFx` + tiempos, `PortalBackgroundOpacity`, `MenuTintValue`, `MaxDisplayNameLength`,
+   `MinLogLevel`, `EnabledLogCategories`): exponerlos es de los mejores ratios valor/esfuerzo.
+7. Bugs de upstream sin arreglar que valen la pena: #135 (los presets de Auto-Organize nunca
+   coinciden con `.docx/.xlsx/.pptx` porque `*.doc*` se normaliza a `.doc`), #134 («Show Desktop»
+   esconde los frames), #121 (opacidad de iconos vs frame), #128 (hover expand en frames nuevos).
+8. `FilePathUtilities.RemoveDeadItemsFromArray` **borra el `.lnk`** cuando el target no existe,
+   tras un `File.Exists` sincrónico: con un disco externo desconectado o una ruta de red caída se
+   pierde el ítem. Conviene no borrar cuando la unidad/target no está accesible y delegar la
+   validación al `TargetChecker`.
