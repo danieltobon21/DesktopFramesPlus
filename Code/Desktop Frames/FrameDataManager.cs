@@ -225,35 +225,36 @@ namespace Desktop_Frames
                     // The Ultimate Interceptor: Forces old or accidentally generated 
                     // "Fence" keys into official "Frame" keys RIGHT BEFORE saving to disk.
                     // ====================================================================
-                    void ConsolidateKey(string officialKey, string[] legacyKeys)
+                    // Migrates the real legacy "Fence*" keys into the official "Frame*" keys.
+                    // It must never touch the official key itself: this call used to pass the
+                    // official key as one of its own "legacy" keys, so every save deleted the
+                    // user's value and only restored it when the value happened to be non-null
+                    // and not "0". A border thickness of 0 (no border) was therefore erased on
+                    // every save and came back as the hardcoded default on the next start.
+                    void ConsolidateKey(string officialKey, params string[] legacyKeys)
                     {
-                        object rescuedValue = null;
-
-                        // Extract valid data from old keys and delete them permanently
                         foreach (string oldKey in legacyKeys)
                         {
-                            if (frameDict.ContainsKey(oldKey))
-                            {
-                                // BUG FIX: Removed '!= "0"' check. 0 is a valid integer (e.g., Border Thickness, X, Y).
-                                if (frameDict[oldKey] != null && frameDict[oldKey].ToString() != "")
-                                {
-                                    rescuedValue = frameDict[oldKey];
-                                }
-                                frameDict.Remove(oldKey); // Vacuum it out
-                            }
-                        }
+                            // Never delete the official key because of its own "legacy" entry.
+                            if (string.Equals(oldKey, officialKey, StringComparison.Ordinal)) continue;
+                            if (!frameDict.ContainsKey(oldKey)) continue;
 
-                        // Apply rescued data to the official key if it doesn't already have a valid setting
-                        // BUG FIX: Removed '!= "0"' check here to prevent wiping valid zero values.
-                        bool hasValidOfficial = frameDict.ContainsKey(officialKey) && frameDict[officialKey] != null && frameDict[officialKey].ToString() != "";
-                        if (!hasValidOfficial && rescuedValue != null)
-                        {
-                            frameDict[officialKey] = rescuedValue;
+                            bool officialIsEmpty = !frameDict.ContainsKey(officialKey)
+                                                   || frameDict[officialKey] == null
+                                                   || frameDict[officialKey].ToString() == "";
+
+                            // 0 is a valid value (border thickness, X, Y) and is accepted here.
+                            if (officialIsEmpty && frameDict[oldKey] != null && frameDict[oldKey].ToString() != "")
+                            {
+                                frameDict[officialKey] = frameDict[oldKey];
+                            }
+
+                            frameDict.Remove(oldKey); // Vacuum the legacy key out
                         }
                     }
 
-                    ConsolidateKey("FrameBorderColor", new[] { "FrameBorderColor", "FrameBorderColor" });
-                    ConsolidateKey("FrameBorderThickness", new[] { "FrameBorderThickness", "FrameBorderThickness" });
+                    ConsolidateKey("FrameBorderColor", "FenceBorderColor", "frameBorderColor");
+                    ConsolidateKey("FrameBorderThickness", "FenceBorderThickness", "frameBorderThickness");
 
                     // Apply simple format consistency
                     ApplyFormatConsistency(frameDict);
@@ -423,13 +424,15 @@ namespace Desktop_Frames
                 }
             }
 
-            if (!double.TryParse(frameDict["Width"]?.ToString(), out double width) || width <= 0)
+            // ContainsKey guards: a missing Width/Height used to throw KeyNotFoundException,
+            // which aborted the whole validation pass for that frame.
+            if (!frameDict.ContainsKey("Width") || !double.TryParse(frameDict["Width"]?.ToString(), out double width) || width <= 0)
             {
                 frameDict["Width"] = 230;
                 modified = true;
             }
 
-            if (!double.TryParse(frameDict["Height"]?.ToString(), out double height) || height <= 0)
+            if (!frameDict.ContainsKey("Height") || !double.TryParse(frameDict["Height"]?.ToString(), out double height) || height <= 0)
             {
                 frameDict["Height"] = 130;
                 modified = true;

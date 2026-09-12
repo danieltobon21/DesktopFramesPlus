@@ -2404,8 +2404,8 @@ namespace Desktop_Frames
                     // Frame Appearance
                     frameDict["CustomColor"] = null;
                     frameDict["CustomLaunchEffect"] = null;
-                    frameDict["FrameBorderColor"] = null;
-                    frameDict["FrameBorderThickness"] = 2; // Default thickness
+                    frameDict["FrameBorderColor"] = FrameAppearanceDefaults.BorderColor;
+                    frameDict["FrameBorderThickness"] = FrameAppearanceDefaults.BorderThickness; // App-wide default (0 = borderless)
 
                     // Title Appearance
                     frameDict["TitleTextColor"] = null;
@@ -3106,9 +3106,10 @@ namespace Desktop_Frames
                     if (!frameDict.ContainsKey("DisableTextShadow")) { frameDict["DisableTextShadow"] = "false"; jsonModified = true; }
                     if (!frameDict.ContainsKey("GrayscaleIcons")) { frameDict["GrayscaleIcons"] = "false"; jsonModified = true; }
 
-                    // Border
-                    if (!frameDict.ContainsKey("FrameBorderColor")) { frameDict["FrameBorderColor"] = null; jsonModified = true; }
-                    if (!frameDict.ContainsKey("FrameBorderThickness")) { frameDict["FrameBorderThickness"] = 2; jsonModified = true; }
+                    // Border. A missing key falls back to the app-wide default instead of a
+                    // hardcoded 2, which used to re-add a border the user had removed.
+                    if (!frameDict.ContainsKey("FrameBorderColor")) { frameDict["FrameBorderColor"] = FrameAppearanceDefaults.BorderColor; jsonModified = true; }
+                    if (!frameDict.ContainsKey("FrameBorderThickness")) { frameDict["FrameBorderThickness"] = FrameAppearanceDefaults.BorderThickness; jsonModified = true; }
 
                     // --- 4. TABS FEATURE (Structure Only, No Merge) ---
                     if (!frameDict.ContainsKey("TabsEnabled"))
@@ -3616,7 +3617,7 @@ namespace Desktop_Frames
 
                     // Visual Defaults
                     CustomColor = (string)null,
-                    FrameBorderThickness = 2
+                    FrameBorderThickness = FrameAppearanceDefaults.BorderThickness
                 };
 
 
@@ -3665,7 +3666,7 @@ namespace Desktop_Frames
                     DisableTextShadow = "false",
                     IconSize = "Medium",
                     IconSpacing = 5,
-                    FrameBorderThickness = 2
+                    FrameBorderThickness = FrameAppearanceDefaults.BorderThickness
                 };
 
                 // 3. Combine and Save
@@ -7558,8 +7559,8 @@ namespace Desktop_Frames
             newframeDict["GrayscaleIcons"] = "false";
             newframeDict["IconSpacing"] = 5;
             newframeDict["TitleTextSize"] = "Medium";
-            newframeDict["FrameBorderColor"] = null;
-            newframeDict["FrameBorderThickness"] = 2;
+            newframeDict["FrameBorderColor"] = FrameAppearanceDefaults.BorderColor;
+            newframeDict["FrameBorderThickness"] = FrameAppearanceDefaults.BorderThickness;
             // TABS FEATURE: Initialize tab properties for new frames
             newframeDict["TabsEnabled"] = "false";  // Default to no tabs
             newframeDict["CurrentTab"] = 0;         // Default to first tab

@@ -302,8 +302,8 @@ namespace Desktop_Frames
             newFrame.GrayscaleIcons = "false";
             newFrame.IconSpacing = 5;
             newFrame.TitleTextSize = "Medium";
-            newFrame.FrameBorderColor = null;
-            newFrame.FrameBorderThickness = 2;
+            newFrame.FrameBorderColor = FrameAppearanceDefaults.BorderColor;
+            newFrame.FrameBorderThickness = FrameAppearanceDefaults.BorderThickness;
 
             // TABS FEATURE requirements
             newFrame.TabsEnabled = "false";
