@@ -1,0 +1,34 @@
+name: build
+
+# The project used to require a full Visual Studio install (COMReference items needed
+# TlbImp.exe/AxImp.exe from the Windows SDK). WScript.Shell is now reached through
+# Interop/WshLateBound.cs, so a plain .NET SDK on a clean windows-latest runner is enough.
+
+on:
+  push:
+    branches: [ "dani/stable", "main" ]
+  workflow_dispatch:
+
+jobs:
+  windows-build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish (framework-dependent, win-x64)
+        working-directory: Code
+        run: dotnet publish "Desktop Frames/Desktop Frames.csproj" -c Release -o ../dist
+
+      - name: Show output
+        run: Get-ChildItem dist | Select-Object Name, Length
+        shell: pwsh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TobonFrames
+          path: dist
+          if-no-files-found: error
