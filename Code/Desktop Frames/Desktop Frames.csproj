@@ -87,10 +87,8 @@
 
 	<ItemGroup>
 		<EmbeddedResource Include="Resources\36505577-smooth-simple-notification-274738.wav" />
-		<EmbeddedResource Include="Resources\avtr.png" />
 		<EmbeddedResource Include="Resources\ding.wav" />
 		<EmbeddedResource Include="Resources\dragon-studio-new-notification-444814.wav" />
-		<EmbeddedResource Include="Resources\dragon.png" />
 		<EmbeddedResource Include="Resources\koiroylers-slow-ding-354125.wav" />
 		<EmbeddedResource Include="Resources\logo1.png" />
 	</ItemGroup>
@@ -110,9 +108,6 @@
 		<Resource Include="Resources\donate.png">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</Resource>
-		<EmbeddedResource Include="Resources\Feed.png">
-		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</EmbeddedResource>
 		<Resource Include="Resources\dot.png">
 		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</Resource>
