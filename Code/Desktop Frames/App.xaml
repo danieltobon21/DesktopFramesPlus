@@ -11,10 +11,13 @@
                      "Fluent" de Windows 11 a los controles estandar (botones, casillas,
                      desplegables, barras de desplazamiento, tooltips...). Se declara aqui,
                      una sola vez, y lo heredan las 14 ventanas de la aplicacion.
+                     Va en Light a proposito: las ventanas dibujan su propio marco
+                     (WindowStyle=None) con fondos claros fijos (rgb 248,249,250), asi que el
+                     tema oscuro pediria cambiar antes esos colores a pinceles del tema.
                      Si algun control se ve raro, se puede quitar esta seccion sin tocar
                      nada mas: la app vuelve a los estilos clasicos de WPF.
                      ============================================================ -->
-                <ui:ThemesDictionary Theme="Dark" />
+                <ui:ThemesDictionary Theme="Light" />
                 <ui:ControlsDictionary />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
