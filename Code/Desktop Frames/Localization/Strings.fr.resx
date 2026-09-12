@@ -63,10 +63,10 @@
     <value> et </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>TobonFrames + crée des cadres virtuels sur votre bureau, où regrouper et ranger vos icônes proprement.</value>
+    <value>TobonFrames crée des cadres virtuels sur votre bureau, où regrouper et ranger vos icônes proprement.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>TobonFrames + est un utilitaire open source pour Windows, né du travail de HakanKokcu sous le nom BirdyFences.
+    <value>TobonFrames est un utilitaire open source pour Windows, né du travail de HakanKokcu sous le nom BirdyFences.
 
 Il est aujourd'hui maintenu par Nikos Georgousis, qui l'a enrichi et rendu plus stable et agréable à utiliser.</value>
   </data>
@@ -104,7 +104,7 @@ Il est aujourd'hui maintenu par Nikos Georgousis, qui l'a enrichi et rendu plus 
     <value>Vraiment ? Réfléchissez !</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>À propos de TobonFrames +</value>
+    <value>À propos de TobonFrames</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Version {0}</value>
@@ -1381,7 +1381,7 @@ Redémarrer maintenant ?</value>
     <value>Ne plus afficher ce message</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>TobonFrames + - Notification</value>
+    <value>TobonFrames - Notification</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Masquer automatiquement les cadres</value>
@@ -1429,7 +1429,7 @@ Redémarrer maintenant ?</value>
     <value>Options</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>TobonFrames + - Options</value>
+    <value>TobonFrames - Options</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Afficher « Nouveau cadre » dans le menu du bureau</value>
@@ -1789,13 +1789,13 @@ Redémarrer maintenant ?</value>
     <value>Valeurs du registre exportées dans le dossier du programme.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>TobonFrames Plus</value>
+    <value>TobonFrames</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Échec de l'export des valeurs du registre. Consultez le journal.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>TobonFrames Plus - Erreur</value>
+    <value>TobonFrames - Erreur</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Aller au cadre... ({0})</value>

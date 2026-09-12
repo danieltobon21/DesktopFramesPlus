@@ -62,10 +62,10 @@
     <value> e </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>TobonFrames + crea frame virtuali sul desktop, dove raccogliere e ordinare le icone in modo pulito e comodo.</value>
+    <value>TobonFrames crea frame virtuali sul desktop, dove raccogliere e ordinare le icone in modo pulito e comodo.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>TobonFrames + è un programma open source per Windows, nato dal lavoro di HakanKokcu con il nome BirdyFences.
+    <value>TobonFrames è un programma open source per Windows, nato dal lavoro di HakanKokcu con il nome BirdyFences.
 
 Oggi lo cura Nikos Georgousis, che lo ha ampliato e reso più stabile e piacevole da usare.</value>
   </data>
@@ -103,7 +103,7 @@ Oggi lo cura Nikos Georgousis, che lo ha ampliato e reso più stabile e piacevol
     <value>Sicuro? Ripensaci!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>Informazioni su TobonFrames +</value>
+    <value>Informazioni su TobonFrames</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Versione {0}</value>
@@ -1326,7 +1326,7 @@ Vuoi riavviare adesso?</value>
     <value>Non mostrare più questo messaggio</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>TobonFrames + - Notifica</value>
+    <value>TobonFrames - Notifica</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Nascondi automaticamente le frame</value>
@@ -1374,7 +1374,7 @@ Vuoi riavviare adesso?</value>
     <value>Opzioni</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>TobonFrames + - Opzioni</value>
+    <value>TobonFrames - Opzioni</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Mostra «Nuova frame» nel menu del desktop</value>
@@ -1728,13 +1728,13 @@ Vuoi riavviare adesso?</value>
     <value>Valori del registro esportati nella cartella del programma.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>TobonFrames Plus</value>
+    <value>TobonFrames</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Esportazione dei valori del registro non riuscita. Controlla il file di log.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>TobonFrames Plus - Errore</value>
+    <value>TobonFrames - Errore</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Vai alla frame... ({0})</value>

@@ -63,10 +63,10 @@
     <value> e </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>O TobonFrames + cria molduras virtuais no ambiente de trabalho, onde reunir e arrumar os ícones de forma limpa e cómoda.</value>
+    <value>O TobonFrames cria molduras virtuais no ambiente de trabalho, onde reunir e arrumar os ícones de forma limpa e cómoda.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>O TobonFrames + é um utilitário de código aberto para Windows, nascido do trabalho de HakanKokcu com o nome BirdyFences.
+    <value>O TobonFrames é um utilitário de código aberto para Windows, nascido do trabalho de HakanKokcu com o nome BirdyFences.
 
 Hoje é mantido por Nikos Georgousis, que o alargou e o tornou mais estável e agradável de usar.</value>
   </data>
@@ -104,7 +104,7 @@ Hoje é mantido por Nikos Georgousis, que o alargou e o tornou mais estável e a
     <value>De certeza? Pense melhor!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>Acerca do TobonFrames +</value>
+    <value>Acerca do TobonFrames</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Versão {0}</value>
@@ -1381,7 +1381,7 @@ Reiniciar agora?</value>
     <value>Não mostrar esta mensagem outra vez</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>TobonFrames + - Notificação</value>
+    <value>TobonFrames - Notificação</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Ocultar as molduras automaticamente</value>
@@ -1429,7 +1429,7 @@ Reiniciar agora?</value>
     <value>Opções</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>TobonFrames + - Opções</value>
+    <value>TobonFrames - Opções</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Mostrar «Nova moldura» no menu do ambiente de trabalho</value>
@@ -1789,13 +1789,13 @@ Reiniciar agora?</value>
     <value>Valores do registo exportados para a pasta do programa.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>TobonFrames Plus</value>
+    <value>TobonFrames</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Falha ao exportar os valores do registo. Consulte o registo.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>TobonFrames Plus - Erro</value>
+    <value>TobonFrames - Erro</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Ir para a moldura... ({0})</value>

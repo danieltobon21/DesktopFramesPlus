@@ -103,7 +103,7 @@ Distribuida bajo licencia MIT; se conservan intactos los avisos de copyright, la
     <value>¿Seguro? Piénsalo otra vez</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>Acerca de TobonFrames +</value>
+    <value>Acerca de TobonFrames</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Versión {0}</value>
@@ -1380,7 +1380,7 @@ Cada ventana lee sus textos mientras se construye, así que el cambio se ve al r
     <value>No volver a mostrar este mensaje</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>TobonFrames + - Notificación</value>
+    <value>TobonFrames - Notificación</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Ocultar los marcos automáticamente</value>
@@ -1428,7 +1428,7 @@ Cada ventana lee sus textos mientras se construye, así que el cambio se ve al r
     <value>Opciones</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>TobonFrames + - Opciones</value>
+    <value>TobonFrames - Opciones</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Mostrar «Nuevo marco» en el menú del escritorio</value>
@@ -1788,13 +1788,13 @@ Cada ventana lee sus textos mientras se construye, así que el cambio se ve al r
     <value>Valores del registro exportados a la carpeta del programa.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>TobonFrames Plus</value>
+    <value>TobonFrames</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>No se pudieron exportar los valores del registro. Consulta el registro.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>TobonFrames Plus - Error</value>
+    <value>TobonFrames - Error</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Ir al marco... ({0})</value>

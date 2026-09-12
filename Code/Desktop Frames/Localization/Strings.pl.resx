@@ -63,10 +63,10 @@
     <value> i </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>TobonFrames + tworzy na pulpicie wirtualne ramki, w których ikony grupują się schludnie i wygodnie.</value>
+    <value>TobonFrames tworzy na pulpicie wirtualne ramki, w których ikony grupują się schludnie i wygodnie.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>TobonFrames + to otwarte narzędzie dla Windows, które wyrosło z pracy HakanKokcu pod nazwą BirdyFences.
+    <value>TobonFrames to otwarte narzędzie dla Windows, które wyrosło z pracy HakanKokcu pod nazwą BirdyFences.
 
 Dziś opiekuje się nim Nikos Georgousis, który je rozbudował oraz uczynił stabilniejszym i przyjemniejszym w użyciu.</value>
   </data>
@@ -104,7 +104,7 @@ Dziś opiekuje się nim Nikos Georgousis, który je rozbudował oraz uczynił st
     <value>Na pewno? Pomyśl jeszcze raz!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>O programie TobonFrames +</value>
+    <value>O programie TobonFrames</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Wersja {0}</value>
@@ -1381,7 +1381,7 @@ Uruchomić ponownie teraz?</value>
     <value>Nie pokazuj więcej tej wiadomości</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>TobonFrames + - Powiadomienie</value>
+    <value>TobonFrames - Powiadomienie</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Automatycznie ukrywaj ramki</value>
@@ -1429,7 +1429,7 @@ Uruchomić ponownie teraz?</value>
     <value>Opcje</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>TobonFrames + - Opcje</value>
+    <value>TobonFrames - Opcje</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Pokaż „Nowa ramka” w menu pulpitu</value>
@@ -1789,13 +1789,13 @@ Uruchomić ponownie teraz?</value>
     <value>Wartości rejestru wyeksportowano do folderu programu.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>TobonFrames Plus</value>
+    <value>TobonFrames</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Nie udało się wyeksportować wartości rejestru. Sprawdź dziennik.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>TobonFrames Plus - Błąd</value>
+    <value>TobonFrames - Błąd</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Przejdź do ramki... ({0})</value>

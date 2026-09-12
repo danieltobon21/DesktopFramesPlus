@@ -63,10 +63,10 @@
     <value> und </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>TobonFrames + legt virtuelle Rahmen auf dem Desktop an, in denen sich Symbole sauber und bequem gruppieren und ordnen lassen.</value>
+    <value>TobonFrames legt virtuelle Rahmen auf dem Desktop an, in denen sich Symbole sauber und bequem gruppieren und ordnen lassen.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>TobonFrames + ist ein quelloffenes Windows-Werkzeug, entstanden aus der Arbeit von HakanKokcu unter dem Namen BirdyFences.
+    <value>TobonFrames ist ein quelloffenes Windows-Werkzeug, entstanden aus der Arbeit von HakanKokcu unter dem Namen BirdyFences.
 
 Heute wird es von Nikos Georgousis gepflegt, der es erweitert und stabiler sowie angenehmer gemacht hat.</value>
   </data>
@@ -104,7 +104,7 @@ Heute wird es von Nikos Georgousis gepflegt, der es erweitert und stabiler sowie
     <value>Sicher? Denk noch mal nach!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>Über TobonFrames +</value>
+    <value>Über TobonFrames</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Version {0}</value>
@@ -1381,7 +1381,7 @@ Jetzt neu starten?</value>
     <value>Diese Meldung nicht mehr anzeigen</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>TobonFrames + - Benachrichtigung</value>
+    <value>TobonFrames - Benachrichtigung</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Rahmen automatisch ausblenden</value>
@@ -1429,7 +1429,7 @@ Jetzt neu starten?</value>
     <value>Optionen</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>TobonFrames + - Optionen</value>
+    <value>TobonFrames - Optionen</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>„Neuer Rahmen“ im Desktop-Kontextmenü anzeigen</value>
@@ -1789,13 +1789,13 @@ Jetzt neu starten?</value>
     <value>Registrierungswerte in den Programmordner exportiert.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>TobonFrames Plus</value>
+    <value>TobonFrames</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Export der Registrierungswerte fehlgeschlagen. Siehe Protokoll.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>TobonFrames Plus - Fehler</value>
+    <value>TobonFrames - Fehler</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Zum Rahmen wechseln... ({0})</value>

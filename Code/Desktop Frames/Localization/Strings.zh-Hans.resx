@@ -121,10 +121,10 @@
     <value> 和 </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>TobonFrames + 可在桌面上创建虚拟面板，方便你分组整理图标，让桌面更整洁、更顺手。</value>
+    <value>TobonFrames 可在桌面上创建虚拟面板，方便你分组整理图标，让桌面更整洁、更顺手。</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>TobonFrames + 是一款适用于 Windows 的开源工具，最初由 HakanKokcu 以 BirdyFences 之名开发。
+    <value>TobonFrames 是一款适用于 Windows 的开源工具，最初由 HakanKokcu 以 BirdyFences 之名开发。
 
 目前由 Nikos Georgousis 维护，并持续改进其功能、稳定性与使用体验。</value>
   </data>
@@ -162,7 +162,7 @@
     <value>确定吗？再想想！</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>关于 TobonFrames +</value>
+    <value>关于 TobonFrames</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>版本 {0}</value>
@@ -1182,7 +1182,7 @@
   <data name="MsgHotkeysSavedRestartNeeded" xml:space="preserve">
     <value>全局快捷键已保存并应用到所有工作区。
 
-请重启 TobonFrames + 以启用这些快捷键。</value>
+请重启 TobonFrames 以启用这些快捷键。</value>
   </data>
   <data name="MsgImportFailed" xml:space="preserve">
     <value>导入失败：{0}</value>
@@ -1385,7 +1385,7 @@
     <value>不再显示此消息</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>TobonFrames + - 通知</value>
+    <value>TobonFrames - 通知</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>自动隐藏面板</value>
@@ -1433,7 +1433,7 @@
     <value>选项</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>TobonFrames + - 选项</value>
+    <value>TobonFrames - 选项</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>在桌面右键菜单中显示“新建面板”</value>
@@ -1595,7 +1595,7 @@
     <value>输入以搜索…</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
-    <value>TobonFrames + 搜索</value>
+    <value>TobonFrames 搜索</value>
   </data>
   <data name="SecAppearance" xml:space="preserve">
     <value>外观</value>
@@ -1787,13 +1787,13 @@
     <value>注册表值已导出到程序文件夹。</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>TobonFrames +</value>
+    <value>TobonFrames</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>导出注册表值失败，请查看日志。</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>TobonFrames + - 错误</value>
+    <value>TobonFrames - 错误</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>定位面板…（{0}）</value>
