@@ -78,6 +78,28 @@ namespace Desktop_Frames
                 mainBorder.Child = rootGrid;
 
                 aboutWindow.Content = mainBorder;
+
+                // === Tema Fluent (WPF-UI) aplicado SOLO a esta ventana ===
+                // Aqui si funciona: esta ventana usa casi todo texto y botones con estilos
+                // estandar, sin colores fijos propios. Se declara en los recursos de la
+                // ventana (no en App.xaml) para no afectar a los demas dialogos, que pintan
+                // todos sus colores a mano y quedaban ilegibles con el tema global.
+                try
+                {
+                    aboutWindow.Resources.MergedDictionaries.Add(
+                        new Wpf.Ui.Markup.ThemesDictionary { Theme = Wpf.Ui.Appearance.ApplicationTheme.Light });
+                    aboutWindow.Resources.MergedDictionaries.Add(new Wpf.Ui.Markup.ControlsDictionary());
+
+                    // El tema hereda el modo de Windows; sus pinceles de texto claros no se ven
+                    // sobre las superficies claras de esta app. Se fijan a oscuro.
+                    aboutWindow.Resources["TextFillColorPrimaryBrush"] = new SolidColorBrush(Color.FromRgb(27, 27, 27));
+                    aboutWindow.Resources["TextFillColorSecondaryBrush"] = new SolidColorBrush(Color.FromRgb(93, 93, 93));
+                    aboutWindow.Resources["TextFillColorTertiaryBrush"] = new SolidColorBrush(Color.FromRgb(118, 118, 118));
+                }
+                catch (Exception ex)
+                {
+                    LogManager.Log(LogManager.LogLevel.Error, LogManager.LogCategory.UI, $"Error aplicando el tema a Acerca de: {ex.Message}");
+                }
                 // Make window draggable ONLY by header to avoid button click conflicts
                 bool isDragging = false;
                 Point clickPosition = new Point();

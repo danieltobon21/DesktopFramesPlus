@@ -175,6 +175,39 @@ namespace Desktop_Frames
                         // Wait 500ms for UI to settle, then draw
                         Task.Delay(500).ContinueWith(t => Dispatcher.Invoke(() => Framemanager.StartDrawMode()));
                     }
+
+                    // --- Ventanas de diagnostico (desarrollo) ---
+                    // Abren un dialogo al arrancar para poder revisar la interfaz desde fuera
+                    // (capturas) sin tener que clicar en el menu del icono de bandeja.
+                    //   TobonFrames.exe --options    -> abre Opciones
+                    //   TobonFrames.exe --about      -> abre Acerca de
+                    // Los dialogos son modales, asi que mientras esten abiertos la app queda
+                    // detras esperandolos: es solo para revisar el aspecto, no un modo de uso.
+                    bool isOptionsStartup = e.Args.Any(arg => arg.Equals("--options", StringComparison.OrdinalIgnoreCase));
+                    bool isAboutStartup = e.Args.Any(arg => arg.Equals("--about", StringComparison.OrdinalIgnoreCase));
+
+                    if (isOptionsStartup || isAboutStartup)
+                    {
+                        Task.Delay(1200).ContinueWith(t => Dispatcher.Invoke(() =>
+                        {
+                            try
+                            {
+                                if (isOptionsStartup)
+                                {
+                                    OptionsFormManager.ShowOptionsForm();
+                                }
+                                else
+                                {
+                                    AboutFormManager.ShowAboutForm();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                LogManager.Log(LogManager.LogLevel.Error, LogManager.LogCategory.UI,
+                                    $"Error abriendo la ventana de diagnostico: {ex.Message}");
+                            }
+                        }));
+                    }
                 }
             }
             catch (Exception ex)

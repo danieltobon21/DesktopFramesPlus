@@ -4,40 +4,10 @@
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:local="clr-namespace:Desktop_Frames" Startup="Application_Startup">
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <!-- ============================================================
-                     WPF-UI (https://wpfui.lepo.co, licencia MIT): trae el aspecto
-                     "Fluent" de Windows 11 a los controles estandar (botones, casillas,
-                     desplegables, barras de desplazamiento, tooltips...). Se declara aqui,
-                     una sola vez, y lo heredan las 14 ventanas de la aplicacion.
-                     Va en Light a proposito: las ventanas dibujan su propio marco
-                     (WindowStyle=None) con fondos claros fijos (rgb 248,249,250), asi que el
-                     tema oscuro pediria cambiar antes esos colores a pinceles del tema.
-                     Si algun control se ve raro, se puede quitar esta seccion sin tocar
-                     nada mas: la app vuelve a los estilos clasicos de WPF.
-                     ============================================================ -->
-                <ui:ThemesDictionary Theme="Light" />
-                <ui:ControlsDictionary />
-            </ResourceDictionary.MergedDictionaries>
-
-            <!-- ============================================================
-                 Los dialogos de la app pintan sus propias superficies claras y sus
-                 propios controles. El tema, en cambio, hereda el modo de Windows: con
-                 Windows en oscuro, WPF-UI pinta el texto de los controles con sus
-                 pinceles claros y sobre las superficies claras de la app queda
-                 ilegible (fue justo el problema del texto de los desplegables).
-                 Se fijan aqui los pinceles de texto a valores oscuros: la app es una
-                 aplicacion de superficies claras, asi que el tema tiene que ser claro
-                 tambien en el texto, sin importar como este Windows.
-                 ============================================================ -->
-            <SolidColorBrush x:Key="TextFillColorPrimaryBrush" Color="#1B1B1B" />
-            <SolidColorBrush x:Key="TextFillColorSecondaryBrush" Color="#5D5D5D" />
-            <SolidColorBrush x:Key="TextFillColorTertiaryBrush" Color="#767676" />
-            <SolidColorBrush x:Key="ComboBoxForeground" Color="#1B1B1B" />
-            <SolidColorBrush x:Key="ComboBoxItemForeground" Color="#1B1B1B" />
-            <SolidColorBrush x:Key="ComboBoxDropDownForeground" Color="#1B1B1B" />
-            <SolidColorBrush x:Key="ComboBoxForegroundDisabled" Color="#8A8A8A" />
-        </ResourceDictionary>
+        <!-- El tema de WPF-UI (Fluent) NO se declara aqui: se aplica solo en la ventana
+             "Acerca de" (ver AboutFormManager). En el resto de dialogos la app pinta todos
+             los colores a mano y el tema dejaba controles ilegibles: el desplegable de
+             Opciones se quedaba sin texto porque el tema hereda el modo oscuro de Windows y
+             pinta el texto con sus pinceles claros sobre las superficies blancas de la app. -->
     </Application.Resources>
 </Application>

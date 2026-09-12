@@ -181,10 +181,7 @@ namespace Desktop_Frames
                 Cursor = Cursors.Hand,
                 HorizontalContentAlignment = HorizontalAlignment.Left,
                 Padding = new Thickness(20, 0, 0, 0),
-                Margin = new Thickness(0, 0, 0, 2),
-                // El color lo pone la app (SetTabButtonColors). Sin esto, la plantilla
-                // del tema pinta encima y la pestana activa deja de distinguirse.
-                OverridesDefaultStyle = true
+                Margin = new Thickness(0, 0, 0, 2)
             };
             SetTabButtonColors(tabButton, tabIndex, isSelected);
             tabButton.Click += (s, e) => SelectTab(tabIndex, tabButton);
@@ -291,8 +288,6 @@ namespace Desktop_Frames
             ComboBox cb = new ComboBox
             {
                 Name = "LanguageComboBox",
-                Foreground = Brushes.Black,
-                Background = Brushes.White,
                 Width = 200,
                 Height = 25,
                 FontFamily = new FontFamily("Segoe UI"),
@@ -437,7 +432,7 @@ namespace Desktop_Frames
             TextBlock lblPortalView = new TextBlock { Text = Strings.LblDefaultPortalView, FontFamily = new FontFamily("Segoe UI"), FontSize = 13, VerticalAlignment = VerticalAlignment.Center };
             Grid.SetColumn(lblPortalView, 0);
 
-            ComboBox cbPortalView = new ComboBox { Name = "DefaultPortalViewComboBox", Height = 25, FontFamily = new FontFamily("Segoe UI"), FontSize = 13, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black, Background = Brushes.White };
+            ComboBox cbPortalView = new ComboBox { Name = "DefaultPortalViewComboBox", Height = 25, FontFamily = new FontFamily("Segoe UI"), FontSize = 13, VerticalAlignment = VerticalAlignment.Center };
             // Content is what the user reads, Tag is what gets written to the
             // settings file. Never save the label: it changes with the language.
             cbPortalView.Items.Add(new ComboBoxItem { Content = Strings.ViewIcons, Tag = "Icons" });
@@ -467,7 +462,7 @@ namespace Desktop_Frames
             TextBlock lblSound = new TextBlock { Text = Strings.LblNotificationSound, FontFamily = new FontFamily("Segoe UI"), FontSize = 13, VerticalAlignment = VerticalAlignment.Center };
             Grid.SetColumn(lblSound, 0);
 
-            ComboBox cbSoundType = new ComboBox { Name = "NotificationSoundComboBox", Height = 25, FontFamily = new FontFamily("Segoe UI"), FontSize = 13, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black, Background = Brushes.White };
+            ComboBox cbSoundType = new ComboBox { Name = "NotificationSoundComboBox", Height = 25, FontFamily = new FontFamily("Segoe UI"), FontSize = 13, VerticalAlignment = VerticalAlignment.Center };
             cbSoundType.Items.Add(Strings.SndDefault);
             cbSoundType.Items.Add(Strings.SndDoubleDing);
             cbSoundType.Items.Add(Strings.SndSmoothTickle);
@@ -948,7 +943,7 @@ namespace Desktop_Frames
 
             TextBlock lblColor = new TextBlock { Text = Strings.LblColor, FontSize = 13, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Right, Margin = new Thickness(0, 0, 10, 0) };
             // Constrain Width to 140 and Left-align so it doesn't stretch to fill the 160px column, creating the gap automatically
-            ComboBox cbColor = new ComboBox { Name = "ColorComboBox", Width = 140, HorizontalAlignment = HorizontalAlignment.Left, Height = 25, FontSize = 13, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black, Background = Brushes.White };
+            ComboBox cbColor = new ComboBox { Name = "ColorComboBox", Width = 140, HorizontalAlignment = HorizontalAlignment.Left, Height = 25, FontSize = 13, VerticalAlignment = VerticalAlignment.Center };
             foreach (string c in new[] { "Gray", "Black", "White", "Beige", "Green", "Purple", "Fuchsia", "Yellow", "Orange", "Red", "Blue", "Bismark" })
                 cbColor.Items.Add(new ComboBoxItem { Content = Strings.Get("Color" + c), Tag = c });
             cbColor.SelectedItem = cbColor.Items.OfType<ComboBoxItem>()
@@ -962,7 +957,7 @@ namespace Desktop_Frames
 
             // UI FIX: Starts perfectly flush at the new 205px mark
             TextBlock lblEffect = new TextBlock { Text = Strings.LblEffect, FontSize = 13, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Left, Margin = new Thickness(0, 0, 10, 0) };
-            ComboBox cbEffect = new ComboBox { Name = "LaunchEffectComboBox", Width = 140, HorizontalAlignment = HorizontalAlignment.Left, Height = 25, FontSize = 13, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black, Background = Brushes.White };
+            ComboBox cbEffect = new ComboBox { Name = "LaunchEffectComboBox", Width = 140, HorizontalAlignment = HorizontalAlignment.Left, Height = 25, FontSize = 13, VerticalAlignment = VerticalAlignment.Center };
             // Same order as the LaunchEffect enum: the value is the index, not the label.
             foreach (string e in new[] { Strings.FxZoom, Strings.FxBounce, Strings.FxFadeOut, Strings.FxSlideUp, Strings.FxRotate, Strings.FxAgitate, Strings.FxGrowAndFly, Strings.FxPulse, Strings.FxElastic, Strings.FxFlip3D, Strings.FxSpiral, Strings.FxShockwave, Strings.FxMatrix, Strings.FxSupernova, Strings.FxTeleport }) cbEffect.Items.Add(e);
             cbEffect.SelectedIndex = (int)SettingsManager.LaunchEffect;
@@ -983,7 +978,7 @@ namespace Desktop_Frames
             g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(120) });
             g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(120) });
             g.Children.Add(new TextBlock { Text = Strings.LblMinimumLogLevel, FontSize = 13, VerticalAlignment = VerticalAlignment.Center });
-            ComboBox cb = new ComboBox { Name = "LogLevelComboBox", Height = 25, FontSize = 13, VerticalAlignment = VerticalAlignment.Center, Foreground = Brushes.Black, Background = Brushes.White };
+            ComboBox cb = new ComboBox { Name = "LogLevelComboBox", Height = 25, FontSize = 13, VerticalAlignment = VerticalAlignment.Center };
             foreach (var l in new[] { "Debug", "Info", "Warn", "Error" }) cb.Items.Add(l);
             cb.SelectedItem = SettingsManager.MinLogLevel.ToString();
             Grid.SetColumn(cb, 1); g.Children.Add(cb); p.Children.Add(g);
