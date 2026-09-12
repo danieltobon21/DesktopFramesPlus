@@ -16,7 +16,7 @@
 		<Product>TobonFrames</Product>
 		<Company>Daniel Tobon</Company>
 		<Description>TobonFrames - desktop icon frames for Windows (fork of Desktop Frames +, MIT)</Description>
-		<ApplicationIcon>Resources	obonframes.ico</ApplicationIcon>
+		<ApplicationIcon>Resources\tobonframes.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -58,9 +58,9 @@
 
 	<ItemGroup>
 		<Content Include="Resources\logo2.ico" />
-		<Content Include="Resources	obonframes.ico" />
-		<None Remove="Resources	obonframes.png" />
-		<EmbeddedResource Include="Resources	obonframes.png" />
+		<Content Include="Resources\tobonframes.ico" />
+		<None Remove="Resources\tobonframes.png" />
+		<EmbeddedResource Include="Resources\tobonframes.png" />
 	</ItemGroup>
 
 	<ItemGroup>
