@@ -253,12 +253,15 @@ namespace Desktop_Frames
                 Cursor = Cursors.Hand
             };
 
-            // Load logo from resources if available
+            // Load logo from resources if available.
+            // 2026 (TobonFrames): la ventana mostraba logo1.png, que es el logo original del
+            // proyecto de upstream (una tarjeta azul con un corazon). Ahora usa la marca propia;
+            // se deja logo1.png solo como respaldo por si falta el recurso.
             try
             {
                 var assembly = Assembly.GetExecutingAssembly();
-                var resourceStream = assembly.GetManifestResourceStream("Desktop_Frames.Resources.logo1.png");
-             //   var resourceStream = assembly.GetManifestResourceStream("Desktop_Frames.avtr.png");
+                var resourceStream = assembly.GetManifestResourceStream("Desktop_Frames.Resources.tobonframes.png")
+                                     ?? assembly.GetManifestResourceStream("Desktop_Frames.Resources.logo1.png");
                 if (resourceStream != null)
                 {
                     BitmapImage bitmap = new BitmapImage();
@@ -273,6 +276,7 @@ namespace Desktop_Frames
                         Height = 64,
                         Stretch = Stretch.Uniform
                     };
+                    RenderOptions.SetBitmapScalingMode(logoImage, BitmapScalingMode.HighQuality);
                     logoPlaceholder.Child = logoImage;
                     logoPlaceholder.Background = Brushes.Transparent;
                 }
