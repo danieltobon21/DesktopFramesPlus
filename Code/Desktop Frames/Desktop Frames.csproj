@@ -147,6 +147,9 @@
 	<ItemGroup>
 		<PackageReference Include="NAudio" Version="2.2.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<!-- WPF-UI (MIT, https://wpfui.lepo.co): aspecto Fluent de Windows 11. Se declara el tema
+		     en App.xaml; si hay que revertir, basta con quitar la referencia y esa seccion. -->
+		<PackageReference Include="WPF-UI" Version="4.3.0" />
 	</ItemGroup>
 
 	<ItemGroup>
