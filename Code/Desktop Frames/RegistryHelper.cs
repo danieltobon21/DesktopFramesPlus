@@ -16,7 +16,7 @@ namespace Desktop_Frames
         #region Messaging State Management (Remote Info System)
 
         // --- MIGRATED PATHS ---
-        private static readonly string MSG_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\Messaging";
+        private static readonly string MSG_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\Messaging";
 
         public static bool IsMessageDismissed(string msgId)
         {
@@ -89,11 +89,11 @@ namespace Desktop_Frames
         #region Constants
 
         // Registry path for our trigger system
-        private static readonly string REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\InstanceTrigger";
+        private static readonly string REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\InstanceTrigger";
         private static readonly string TRIGGER_VALUE_NAME = "TriggerEffect";
 
         // Registry path for program management values
-        private static readonly string PROGRAM_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\ProgramManagement";
+        private static readonly string PROGRAM_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\ProgramManagement";
 
         // Context Menu Constants
         private const string MENU_PATH = @"Software\Classes\DesktopBackground\Shell\DesktopFrames";
@@ -104,7 +104,7 @@ namespace Desktop_Frames
         #region Migration Methods
 
         // Registry path for internal app settings/flags
-        private static readonly string SETTINGS_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus\Settings";
+        private static readonly string SETTINGS_REGISTRY_KEY_PATH = @"SOFTWARE\Desktop_Frames_Plus_Beta\Settings";
 
         public static bool IsStartupMigrated()
         {
@@ -555,7 +555,7 @@ namespace Desktop_Frames
 
                 // 1. Recursive Data Migration (Stats, Info, Settings)
                 string oldBaseKeyName = @"SOFTWARE\Desktop_Fences_Plus";
-                string newBaseKeyName = @"SOFTWARE\Desktop_Frames_Plus";
+                string newBaseKeyName = @"SOFTWARE\Desktop_Frames_Plus_Beta";
 
                 using (var oldBaseKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(oldBaseKeyName))
                 {
