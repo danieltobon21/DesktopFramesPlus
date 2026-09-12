@@ -17,7 +17,17 @@
 		<Company>Daniel Tobon</Company>
 		<Description>TobonFrames - desktop icon frames for Windows (fork of Desktop Frames +, MIT)</Description>
 		<ApplicationIcon>Resources\tobonframes.ico</ApplicationIcon>
+		<!-- Ajustes de memoria: la app vive en segundo plano todo el dia (sin GC en segundo
+		     plano, con el heap reservado justo) y con RAM de sobra en la maquina no hace falta
+		     el presupuesto agresivo que trae el GC por defecto. -->
+		<ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+		<InvariantGlobalization>false</InvariantGlobalization>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- 5 de 9: prioriza devolver memoria al sistema en vez de reservar heap de mas. -->
+		<RuntimeHostConfigurationOption Include="System.GC.ConserveMemory" Value="5" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Remove="file-WhiteX.png" />
