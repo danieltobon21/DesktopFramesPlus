@@ -30,7 +30,7 @@ namespace Desktop_Frames
         {
             _logFilePath = System.IO.Path.Combine(
                 System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-                "Desktop_Frames.log");
+                "TobonFramesBeta.log");
         }
 
         public static void Log(LogLevel level, LogCategory category, string message)

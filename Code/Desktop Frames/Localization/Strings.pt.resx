@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Seed translation produced with AI assistance and not yet reviewed by a native speaker. Any key that is ever removed falls back to English at runtime. -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
@@ -63,10 +63,10 @@
     <value> e </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>O Desktop Frames + cria molduras virtuais no ambiente de trabalho, onde reunir e arrumar os ícones de forma limpa e cómoda.</value>
+    <value>O TobonFrames + cria molduras virtuais no ambiente de trabalho, onde reunir e arrumar os ícones de forma limpa e cómoda.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>O Desktop Frames + é um utilitário de código aberto para Windows, nascido do trabalho de HakanKokcu com o nome BirdyFences.
+    <value>O TobonFrames + é um utilitário de código aberto para Windows, nascido do trabalho de HakanKokcu com o nome BirdyFences.
 
 Hoje é mantido por Nikos Georgousis, que o alargou e o tornou mais estável e agradável de usar.</value>
   </data>
@@ -104,7 +104,7 @@ Hoje é mantido por Nikos Georgousis, que o alargou e o tornou mais estável e a
     <value>De certeza? Pense melhor!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>Acerca do Desktop Frames +</value>
+    <value>Acerca do TobonFrames +</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Versão {0}</value>
@@ -1175,7 +1175,7 @@ A aplicação vai reiniciar para as aplicar.</value>
   <data name="MsgHotkeysSavedRestartNeeded" xml:space="preserve">
     <value>Os atalhos globais foram guardados e aplicados a todos os perfis.
 
-Reinicie o Desktop Frames para os ativar.</value>
+Reinicie o TobonFrames para os ativar.</value>
   </data>
   <data name="MsgImportFailed" xml:space="preserve">
     <value>A importação falhou: {0}</value>
@@ -1381,7 +1381,7 @@ Reiniciar agora?</value>
     <value>Não mostrar esta mensagem outra vez</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>Desktop Frames + - Notificação</value>
+    <value>TobonFrames + - Notificação</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Ocultar as molduras automaticamente</value>
@@ -1429,7 +1429,7 @@ Reiniciar agora?</value>
     <value>Opções</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>Desktop Frames + - Opções</value>
+    <value>TobonFrames + - Opções</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Mostrar «Nova moldura» no menu do ambiente de trabalho</value>
@@ -1591,7 +1591,7 @@ Reiniciar agora?</value>
     <value>Escreva para procurar…</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
-    <value>Pesquisa do Desktop Frames</value>
+    <value>Pesquisa do TobonFrames</value>
   </data>
   <data name="SecAppearance" xml:space="preserve">
     <value>Aspeto</value>
@@ -1789,13 +1789,13 @@ Reiniciar agora?</value>
     <value>Valores do registo exportados para a pasta do programa.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>Desktop Frames Plus</value>
+    <value>TobonFrames Plus</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Falha ao exportar os valores do registo. Consulte o registo.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>Desktop Frames Plus - Erro</value>
+    <value>TobonFrames Plus - Erro</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Ir para a moldura... ({0})</value>

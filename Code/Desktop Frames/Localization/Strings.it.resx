@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -62,10 +62,10 @@
     <value> e </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>Desktop Frames + crea frame virtuali sul desktop, dove raccogliere e ordinare le icone in modo pulito e comodo.</value>
+    <value>TobonFrames + crea frame virtuali sul desktop, dove raccogliere e ordinare le icone in modo pulito e comodo.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>Desktop Frames + è un programma open source per Windows, nato dal lavoro di HakanKokcu con il nome BirdyFences.
+    <value>TobonFrames + è un programma open source per Windows, nato dal lavoro di HakanKokcu con il nome BirdyFences.
 
 Oggi lo cura Nikos Georgousis, che lo ha ampliato e reso più stabile e piacevole da usare.</value>
   </data>
@@ -103,7 +103,7 @@ Oggi lo cura Nikos Georgousis, che lo ha ampliato e reso più stabile e piacevol
     <value>Sicuro? Ripensaci!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>Informazioni su Desktop Frames +</value>
+    <value>Informazioni su TobonFrames +</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Versione {0}</value>
@@ -1123,7 +1123,7 @@ L'applicazione verrà riavviata per applicarle.</value>
   <data name="MsgHotkeysSavedRestartNeeded" xml:space="preserve">
     <value>Le scorciatoie da tastiera sono state salvate e applicate a tutti i profili.
 
-Riavvia Desktop Frames per attivarle.</value>
+Riavvia TobonFrames per attivarle.</value>
   </data>
   <data name="MsgImportFailed" xml:space="preserve">
     <value>Importazione non riuscita: {0}</value>
@@ -1326,7 +1326,7 @@ Vuoi riavviare adesso?</value>
     <value>Non mostrare più questo messaggio</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>Desktop Frames + - Notifica</value>
+    <value>TobonFrames + - Notifica</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Nascondi automaticamente le frame</value>
@@ -1374,7 +1374,7 @@ Vuoi riavviare adesso?</value>
     <value>Opzioni</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>Desktop Frames + - Opzioni</value>
+    <value>TobonFrames + - Opzioni</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Mostra «Nuova frame» nel menu del desktop</value>
@@ -1536,7 +1536,7 @@ Vuoi riavviare adesso?</value>
     <value>Digita per cercare...</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
-    <value>Ricerca in Desktop Frames</value>
+    <value>Ricerca in TobonFrames</value>
   </data>
   <data name="SecAppearance" xml:space="preserve">
     <value>Aspetto</value>
@@ -1728,13 +1728,13 @@ Vuoi riavviare adesso?</value>
     <value>Valori del registro esportati nella cartella del programma.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>Desktop Frames Plus</value>
+    <value>TobonFrames Plus</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Esportazione dei valori del registro non riuscita. Controlla il file di log.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>Desktop Frames Plus - Errore</value>
+    <value>TobonFrames Plus - Errore</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Vai alla frame... ({0})</value>

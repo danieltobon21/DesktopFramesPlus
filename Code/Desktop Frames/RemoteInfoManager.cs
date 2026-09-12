@@ -12,7 +12,7 @@ namespace Desktop_Frames
     public static class RemoteInfoManager
     {
         // YOUR REAL GITHUB URL
-        private const string MANIFEST_URL = "https://raw.githubusercontent.com/limbo666/DesktopFramesPlus/refs/heads/main/ngdfcs/getversion.json";
+        private const string MANIFEST_URL = "https://raw.githubusercontent.com/danieltobon21/DesktopFramesPlus/refs/heads/main/ngdfcs/getversion.json";
 
         private static bool _hasChecked = false;
 
@@ -150,7 +150,7 @@ namespace Desktop_Frames
                         Title = Strings.UpdateAvailable,
                         Body = $"A new version ({remoteVer}) is available.\nYou are currently using {currentVer}.",
                         Type = meta.CriticalUpdate ? "Alert" : "Info",
-                        Link = !string.IsNullOrEmpty(meta.DownloadUrl) ? meta.DownloadUrl : "https://github.com/limbo666/DesktopFramesPlus/releases",
+                        Link = !string.IsNullOrEmpty(meta.DownloadUrl) ? meta.DownloadUrl : "https://github.com/danieltobon21/DesktopFramesPlus/releases",
                         CanUserDismiss = !meta.CriticalUpdate,
                         MaxDisplayCount = meta.CriticalUpdate ? 50 : 3 // Nag more for critical
                     };

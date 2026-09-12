@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -62,12 +62,11 @@
     <value> and </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>Desktop Frames + creates virtual frames on your desktop, allowing you to group and organize icons in a clean and convenient way.</value>
+    <value>TobonFrames creates virtual frames on your desktop, allowing you to group and organize icons in a clean and convenient way.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>Desktop Frames + is an open-source utility for Windows, originally created by HakanKokcu under the name BirdyFences.
-
-Desktop Frames + is maintained by Nikos Georgousis, has been enhanced and optimized for stability and better user experience.</value>
+    <value>TobonFrames is a personal build of Desktop Frames +, the open-source Windows utility originally created by HakanKokcu under the name BirdyFences and maintained by Nikos Georgousis.
+Distributed under the MIT License; the original copyright notices, authorship and credits are kept unchanged.</value>
   </data>
   <data name="AboutDonateBig" xml:space="preserve">
     <value>Donate 999,00 €</value>
@@ -103,7 +102,7 @@ Desktop Frames + is maintained by Nikos Georgousis, has been enhanced and optimi
     <value>Are you sure? Think again!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>About Desktop Frames +</value>
+    <value>About TobonFrames +</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Version {0}</value>
@@ -1123,7 +1122,7 @@ The application will now restart to apply changes.</value>
   <data name="MsgHotkeysSavedRestartNeeded" xml:space="preserve">
     <value>Global Hotkey changes have been saved and applied to all profiles.
 
-Please restart Desktop Frames to activate the new shortcuts.</value>
+Please restart TobonFrames to activate the new shortcuts.</value>
   </data>
   <data name="MsgImportFailed" xml:space="preserve">
     <value>Import failed: {0}</value>
@@ -1326,7 +1325,7 @@ Restart now?</value>
     <value>Don't show this again</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>Desktop Frames + Notification</value>
+    <value>TobonFrames + Notification</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Auto hide frames</value>
@@ -1374,7 +1373,7 @@ Restart now?</value>
     <value>Options</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>Desktop Frames + Options</value>
+    <value>TobonFrames + Options</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Show 'New Frame' in Desktop Context Menu</value>
@@ -1536,7 +1535,7 @@ Restart now?</value>
     <value>Type to search...</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
-    <value>Desktop Frames Search</value>
+    <value>TobonFrames Search</value>
   </data>
   <data name="SecAppearance" xml:space="preserve">
     <value>Appearance</value>
@@ -1728,13 +1727,13 @@ Restart now?</value>
     <value>Registry values exported successfully to program folder.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>Desktop Frames Plus</value>
+    <value>TobonFrames Plus</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Failed to export registry values. Check log for details.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>Desktop Frames Plus - Error</value>
+    <value>TobonFrames Plus - Error</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Focus Frame... ({0})</value>

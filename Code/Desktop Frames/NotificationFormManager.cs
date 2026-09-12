@@ -101,7 +101,7 @@ namespace Desktop_Frames
 
             TextBlock txtTitle = new TextBlock
             {
-                Text = $"Desktop Frames + | {_msg.Title}",
+                Text = $"TobonFrames | {_msg.Title}",
                 Foreground = Brushes.White,
                 FontWeight = FontWeights.Bold,
                 FontSize = 14

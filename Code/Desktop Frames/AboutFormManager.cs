@@ -301,7 +301,7 @@ namespace Desktop_Frames
 
             TextBlock titleText = new TextBlock
             {
-                Text = "Desktop Frames +",
+                Text = "TobonFrames",
                 FontFamily = new FontFamily("Segoe UI"),
                 FontSize = 22, // Your improved font size
                 FontWeight = FontWeights.Bold,
@@ -456,40 +456,6 @@ namespace Desktop_Frames
                 Margin = new Thickness(0, 8, 0, 0)
             };
 
-            // Donate Button
-            Button donateButton = new Button
-            {
-                Content = Strings.BtnDonate,
-                Height = 36,
-                Padding = new Thickness(16, 0, 16, 0),
-                FontFamily = new FontFamily("Segoe UI"),
-                FontSize = 14, // Your improved font size
-                FontWeight = FontWeights.Bold,
-                Foreground = Brushes.White,
-                Background = new SolidColorBrush(Color.FromRgb(255, 102, 51)), // Orange
-                BorderThickness = new Thickness(0),
-                Cursor = Cursors.Hand,
-                Margin = new Thickness(0, 0, 12, 0)
-            };
-
-            donateButton.MouseEnter += (s, e) => donateButton.Background = new SolidColorBrush(Color.FromRgb(230, 90, 40));
-            donateButton.MouseLeave += (s, e) => donateButton.Background = new SolidColorBrush(Color.FromRgb(255, 102, 51));
-            donateButton.Click += (s, e) =>
-            {
-                try
-                {
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = "https://www.paypal.com/donate/?hosted_button_id=PPLWC66UC8Q42",
-                        UseShellExecute = true
-                    });
-                }
-                catch (Exception ex)
-                {
-                    LogManager.Log(LogManager.LogLevel.Error, LogManager.LogCategory.UI, $"Error opening PayPal link: {ex.Message}");
-                }
-            };
-
             // GitHub Button
             Button githubButton = new Button
             {
@@ -513,7 +479,7 @@ namespace Desktop_Frames
                 {
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = "https://github.com/limbo666/DesktopFramesPlus",
+                        FileName = "https://github.com/danieltobon21/DesktopFramesPlus",
                         UseShellExecute = true
                     });
                 }
@@ -523,7 +489,6 @@ namespace Desktop_Frames
                 }
             };
 
-            buttonsPanel.Children.Add(donateButton);
             buttonsPanel.Children.Add(githubButton);
             section.Children.Add(buttonsPanel);
             parent.Children.Add(section);
@@ -854,7 +819,7 @@ namespace Desktop_Frames
                     {
                         Process.Start(new ProcessStartInfo
                         {
-                            FileName = "https://www.paypal.com/donate/?hosted_button_id=PPLWC66UC8Q42",
+                            FileName = "https://github.com/danieltobon21/DesktopFramesPlus",
                             UseShellExecute = true
                         });
                         easterWindow.Close();

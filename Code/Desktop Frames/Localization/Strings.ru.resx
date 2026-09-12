@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Seed translation produced with AI assistance and not yet reviewed by a native speaker. Any key that is ever removed falls back to English at runtime. -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
@@ -63,10 +63,10 @@
     <value> и </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>Desktop Frames + создаёт на рабочем столе виртуальные рамки, в которых значки удобно и опрятно группируются.</value>
+    <value>TobonFrames + создаёт на рабочем столе виртуальные рамки, в которых значки удобно и опрятно группируются.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>Desktop Frames + — открытая утилита для Windows, выросшая из работы HakanKokcu под названием BirdyFences.
+    <value>TobonFrames + — открытая утилита для Windows, выросшая из работы HakanKokcu под названием BirdyFences.
 
 Сегодня её сопровождает Nikos Georgousis, который её расширил и сделал стабильнее и приятнее в работе.</value>
   </data>
@@ -104,7 +104,7 @@
     <value>Уверены? Подумайте ещё раз!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>О программе Desktop Frames +</value>
+    <value>О программе TobonFrames +</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Версия {0}</value>
@@ -1175,7 +1175,7 @@
   <data name="MsgHotkeysSavedRestartNeeded" xml:space="preserve">
     <value>Глобальные сочетания клавиш сохранены и применены ко всем профилям.
 
-Перезапустите Desktop Frames, чтобы они заработали.</value>
+Перезапустите TobonFrames, чтобы они заработали.</value>
   </data>
   <data name="MsgImportFailed" xml:space="preserve">
     <value>Не удалось выполнить импорт: {0}</value>
@@ -1381,7 +1381,7 @@
     <value>Больше не показывать это сообщение</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>Desktop Frames + - Уведомление</value>
+    <value>TobonFrames + - Уведомление</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Автоматически скрывать рамки</value>
@@ -1429,7 +1429,7 @@
     <value>Параметры</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>Desktop Frames + - Параметры</value>
+    <value>TobonFrames + - Параметры</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Показывать «Новая рамка» в меню рабочего стола</value>
@@ -1591,7 +1591,7 @@
     <value>Введите для поиска…</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
-    <value>Поиск Desktop Frames</value>
+    <value>Поиск TobonFrames</value>
   </data>
   <data name="SecAppearance" xml:space="preserve">
     <value>Внешний вид</value>
@@ -1789,13 +1789,13 @@
     <value>Значения реестра экспортированы в папку программы.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>Desktop Frames Plus</value>
+    <value>TobonFrames Plus</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Не удалось экспортировать значения реестра. Смотрите журнал.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>Desktop Frames Plus - Ошибка</value>
+    <value>TobonFrames Plus - Ошибка</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Перейти к рамке... ({0})</value>

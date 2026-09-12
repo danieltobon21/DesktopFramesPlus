@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Seed translation produced with AI assistance and not yet reviewed by a native speaker. Any key that is ever removed falls back to English at runtime. -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
@@ -63,10 +63,10 @@
     <value> i </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>Desktop Frames + tworzy na pulpicie wirtualne ramki, w których ikony grupują się schludnie i wygodnie.</value>
+    <value>TobonFrames + tworzy na pulpicie wirtualne ramki, w których ikony grupują się schludnie i wygodnie.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>Desktop Frames + to otwarte narzędzie dla Windows, które wyrosło z pracy HakanKokcu pod nazwą BirdyFences.
+    <value>TobonFrames + to otwarte narzędzie dla Windows, które wyrosło z pracy HakanKokcu pod nazwą BirdyFences.
 
 Dziś opiekuje się nim Nikos Georgousis, który je rozbudował oraz uczynił stabilniejszym i przyjemniejszym w użyciu.</value>
   </data>
@@ -104,7 +104,7 @@ Dziś opiekuje się nim Nikos Georgousis, który je rozbudował oraz uczynił st
     <value>Na pewno? Pomyśl jeszcze raz!</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>O programie Desktop Frames +</value>
+    <value>O programie TobonFrames +</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Wersja {0}</value>
@@ -1175,7 +1175,7 @@ Aplikacja uruchomi się ponownie, aby je zastosować.</value>
   <data name="MsgHotkeysSavedRestartNeeded" xml:space="preserve">
     <value>Globalne skróty klawiszowe zostały zapisane i zastosowane we wszystkich profilach.
 
-Uruchom ponownie Desktop Frames, aby je włączyć.</value>
+Uruchom ponownie TobonFrames, aby je włączyć.</value>
   </data>
   <data name="MsgImportFailed" xml:space="preserve">
     <value>Import nie powiódł się: {0}</value>
@@ -1381,7 +1381,7 @@ Uruchomić ponownie teraz?</value>
     <value>Nie pokazuj więcej tej wiadomości</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>Desktop Frames + - Powiadomienie</value>
+    <value>TobonFrames + - Powiadomienie</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Automatycznie ukrywaj ramki</value>
@@ -1429,7 +1429,7 @@ Uruchomić ponownie teraz?</value>
     <value>Opcje</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>Desktop Frames + - Opcje</value>
+    <value>TobonFrames + - Opcje</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Pokaż „Nowa ramka” w menu pulpitu</value>
@@ -1591,7 +1591,7 @@ Uruchomić ponownie teraz?</value>
     <value>Wpisz, aby szukać…</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
-    <value>Wyszukiwanie Desktop Frames</value>
+    <value>Wyszukiwanie TobonFrames</value>
   </data>
   <data name="SecAppearance" xml:space="preserve">
     <value>Wygląd</value>
@@ -1789,13 +1789,13 @@ Uruchomić ponownie teraz?</value>
     <value>Wartości rejestru wyeksportowano do folderu programu.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>Desktop Frames Plus</value>
+    <value>TobonFrames Plus</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>Nie udało się wyeksportować wartości rejestru. Sprawdź dziennik.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>Desktop Frames Plus - Błąd</value>
+    <value>TobonFrames Plus - Błąd</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Przejdź do ramki... ({0})</value>

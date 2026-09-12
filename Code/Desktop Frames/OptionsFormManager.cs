@@ -1333,7 +1333,7 @@ namespace Desktop_Frames
             StackPanel sp = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
             sp.Children.Add(new TextBlock { Text = Strings.LblDonate, FontSize = 13, Foreground = new SolidColorBrush(Color.FromRgb(102, 77, 3)), VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(0, 0, 15, 0) });
             Button b = new Button { Content = Strings.BtnDonate, FontSize = 14, Background = new SolidColorBrush(Color.FromRgb(255, 193, 7)), Foreground = Brushes.White, BorderThickness = new Thickness(0), Padding = new Thickness(15, 6, 15, 6), Cursor = Cursors.Hand };
-            b.Click += (s, e) => { try { Process.Start(new ProcessStartInfo { FileName = "https://www.paypal.com/donate/?hosted_button_id=PPLWC66UC8Q42", UseShellExecute = true }); } catch { } };
+            b.Click += (s, e) => { try { Process.Start(new ProcessStartInfo { FileName = "https://github.com/danieltobon21/DesktopFramesPlus", UseShellExecute = true }); } catch { } };
             sp.Children.Add(b); d.Child = sp; mainGrid.Children.Add(d);
         }
 
@@ -1370,7 +1370,7 @@ namespace Desktop_Frames
         {
             try
             {
-                string p = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Desktop_Frames.log");
+                string p = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "TobonFramesBeta.log");
                 if (System.IO.File.Exists(p)) Process.Start(new ProcessStartInfo { FileName = p, UseShellExecute = true });
                 else MessageBoxesManager.ShowOKOnlyMessageBoxForm(Strings.MsgLogFileNotFound, Strings.DlgInformation);
             }

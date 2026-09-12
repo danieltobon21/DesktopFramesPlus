@@ -8,10 +8,15 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<UseWindowsForms>True</UseWindowsForms>
-		<AssemblyVersion>2.7.8.358</AssemblyVersion>
-		<FileVersion>2.7.8.358</FileVersion>
-		<Version>2.7.8.358</Version>
-		<ApplicationIcon>Resources\logo2.ico</ApplicationIcon>
+		<AssemblyVersion>2.7.8.359</AssemblyVersion>
+		<FileVersion>2.7.8.359</FileVersion>
+		<Version>2.7.8.359</Version>
+		<AssemblyName>TobonFramesBeta</AssemblyName>
+		<AssemblyTitle>TobonFrames (beta)</AssemblyTitle>
+		<Product>TobonFrames Beta</Product>
+		<Company>Daniel Tobon</Company>
+		<Description>TobonFrames - desktop icon frames for Windows (fork of Desktop Frames +, MIT)</Description>
+		<ApplicationIcon>Resources\tobonframes.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -49,35 +54,15 @@
 		<None Remove="Resources\universfield-soft-notice-146623.wav" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<COMReference Include="IWshRuntimeLibrary">
-			<WrapperTool>tlbimp</WrapperTool>
-			<VersionMinor>0</VersionMinor>
-			<VersionMajor>1</VersionMajor>
-			<Guid>FBE64DF3-855A-4143-8279-7712313F7D5F</Guid>
-			<Lcid>0</Lcid>
-			<Isolated>false</Isolated>
-			<EmbedInteropTypes>true</EmbedInteropTypes>
-		</COMReference>
-		<COMReference Include="IWshRuntimeLibrary">
-			<WrapperTool>tlbimp</WrapperTool>
-			<VersionMinor>0</VersionMinor>
-			<VersionMajor>1</VersionMajor>
-			<Guid>f935dc20-1cf0-11d0-adb9-00c04fd58a0b</Guid>
-			<Lcid>0</Lcid>
-			<Isolated>false</Isolated>
-			<EmbedInteropTypes>true</EmbedInteropTypes>
-		</COMReference>
-		<COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
-			<WrapperTool>tlbimp</WrapperTool>
-			<VersionMinor>4</VersionMinor>
-			<VersionMajor>2</VersionMajor>
-			<Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
-		</COMReference>
-	</ItemGroup>
+	<!-- COMReferences removed: they required TlbImp/AxImp from the Windows SDK, which the
+	     .NET SDK's MSBuild cannot run (MSB4803). WScript.Shell is late-bound in
+	     Interop/WshLateBound.cs, so plain "dotnet publish" builds the project. -->
 
 	<ItemGroup>
 		<Content Include="Resources\logo2.ico" />
+		<Content Include="Resources\tobonframes.ico" />
+		<None Remove="Resources\tobonframes.png" />
+		<EmbeddedResource Include="Resources\tobonframes.png" />
 	</ItemGroup>
 
 	<ItemGroup>

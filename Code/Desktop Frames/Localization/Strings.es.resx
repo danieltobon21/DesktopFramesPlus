@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Seed translation produced with AI assistance and not yet reviewed by a native speaker. Any key that is ever removed falls back to English at runtime. -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
@@ -63,12 +63,11 @@
     <value> y </value>
   </data>
   <data name="AboutBody" xml:space="preserve">
-    <value>Desktop Frames + crea marcos virtuales en el escritorio, donde agrupar y ordenar los iconos de forma limpia y cómoda.</value>
+    <value>TobonFrames crea marcos virtuales en el escritorio, donde agrupar y ordenar los iconos de forma limpia y cómoda.</value>
   </data>
   <data name="AboutCreditsBody" xml:space="preserve">
-    <value>Desktop Frames + es una utilidad de código abierto para Windows, nacida del trabajo de HakanKokcu con el nombre BirdyFences.
-
-Hoy la mantiene Nikos Georgousis, que la ha ampliado y la ha hecho más estable y agradable de usar.</value>
+    <value>TobonFrames es una build personal de Desktop Frames +, la utilidad de código abierto para Windows creada originalmente por HakanKokcu con el nombre BirdyFences y mantenida por Nikos Georgousis.
+Distribuida bajo licencia MIT; se conservan intactos los avisos de copyright, la autoría y los créditos originales.</value>
   </data>
   <data name="AboutDonateBig" xml:space="preserve">
     <value>Donar 999,00 €</value>
@@ -104,7 +103,7 @@ Hoy la mantiene Nikos Georgousis, que la ha ampliado y la ha hecho más estable 
     <value>¿Seguro? Piénsalo otra vez</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>Acerca de Desktop Frames +</value>
+    <value>Acerca de TobonFrames +</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Versión {0}</value>
@@ -1175,7 +1174,7 @@ La aplicación se reiniciará para aplicarla.</value>
   <data name="MsgHotkeysSavedRestartNeeded" xml:space="preserve">
     <value>Los atajos de teclado se han guardado y aplicado a todos los perfiles.
 
-Reinicia Desktop Frames para activarlos.</value>
+Reinicia TobonFrames para activarlos.</value>
   </data>
   <data name="MsgImportFailed" xml:space="preserve">
     <value>La importación falló: {0}</value>
@@ -1381,7 +1380,7 @@ Cada ventana lee sus textos mientras se construye, así que el cambio se ve al r
     <value>No volver a mostrar este mensaje</value>
   </data>
   <data name="NotificationTitle" xml:space="preserve">
-    <value>Desktop Frames + - Notificación</value>
+    <value>TobonFrames + - Notificación</value>
   </data>
   <data name="OptAutoHideFrames" xml:space="preserve">
     <value>Ocultar los marcos automáticamente</value>
@@ -1429,7 +1428,7 @@ Cada ventana lee sus textos mientras se construye, así que el cambio se ve al r
     <value>Opciones</value>
   </data>
   <data name="OptionsTitle" xml:space="preserve">
-    <value>Desktop Frames + - Opciones</value>
+    <value>TobonFrames + - Opciones</value>
   </data>
   <data name="OptNewFrameContextMenu" xml:space="preserve">
     <value>Mostrar «Nuevo marco» en el menú del escritorio</value>
@@ -1591,7 +1590,7 @@ Cada ventana lee sus textos mientras se construye, así que el cambio se ve al r
     <value>Escribe para buscar…</value>
   </data>
   <data name="SearchTitle" xml:space="preserve">
-    <value>Búsqueda de Desktop Frames</value>
+    <value>Búsqueda de TobonFrames</value>
   </data>
   <data name="SecAppearance" xml:space="preserve">
     <value>Apariencia</value>
@@ -1789,13 +1788,13 @@ Cada ventana lee sus textos mientras se construye, así que el cambio se ve al r
     <value>Valores del registro exportados a la carpeta del programa.</value>
   </data>
   <data name="TrayExportDoneTitle" xml:space="preserve">
-    <value>Desktop Frames Plus</value>
+    <value>TobonFrames Plus</value>
   </data>
   <data name="TrayExportFailedText" xml:space="preserve">
     <value>No se pudieron exportar los valores del registro. Consulta el registro.</value>
   </data>
   <data name="TrayExportFailedTitle" xml:space="preserve">
-    <value>Desktop Frames Plus - Error</value>
+    <value>TobonFrames Plus - Error</value>
   </data>
   <data name="TrayFocusFrame" xml:space="preserve">
     <value>Ir al marco... ({0})</value>

@@ -29,7 +29,7 @@ namespace Desktop_Frames
         public static bool IsStartWithWindows { get; private set; }
 
         private const string RUN_KEY_PATH = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
-        private const string APP_NAME = "Desktop Frames +"; // --- FIX: Ensures new registry entries use the correct name ---
+        private const string APP_NAME = "TobonFrames Beta"; // --- FIX: Ensures new registry entries use the correct name ---
 
         private static readonly List<HiddenFrame> HiddenFrames = new List<HiddenFrame>();
     
@@ -226,7 +226,7 @@ namespace Desktop_Frames
             {
                 Icon = Icon.ExtractAssociatedIcon(exePath),
                 Visible = true,
-                Text = $"Desktop Frames ({ProfileManager.CurrentProfileName})"
+                Text = $"TobonFrames ({ProfileManager.CurrentProfileName})"
             };
 
             _trayIcon.DoubleClick += OnTrayIconDoubleClick;
@@ -319,7 +319,7 @@ namespace Desktop_Frames
         {
             var waitWindow = new System.Windows.Window
             {
-                Title = "Desktop Frames +",
+                Title = "TobonFrames",
                 Width = 300,
                 Height = 150,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
@@ -353,7 +353,7 @@ namespace Desktop_Frames
 
             var titleText = new System.Windows.Controls.TextBlock
             {
-                Text = "Desktop Frames +",
+                Text = "TobonFrames",
                 FontFamily = new System.Windows.Media.FontFamily("Segoe UI"),
                 FontSize = 16,
                 FontWeight = System.Windows.FontWeights.Medium,
@@ -561,7 +561,7 @@ namespace Desktop_Frames
                         ProfileManager.SwitchToProfile(profile.Name);
                         // Update the 'Home' profile so automation reverts to this manual choice later
                         ProfileManager.SetManualBaseProfile(profile.Name);
-                        _trayIcon.Text = $"Desktop Frames ({profile.Name})";
+                        _trayIcon.Text = $"TobonFrames ({profile.Name})";
                         UpdateProfilesMenu();
                     };
                 }
@@ -765,7 +765,7 @@ namespace Desktop_Frames
             if (Showintray == true)
             {
                 // FIX: Update the tooltip text to match the current profile
-                _trayIcon.Text = $"Desktop Frames + ({ProfileManager.CurrentProfileName})";
+                _trayIcon.Text = $"TobonFrames ({ProfileManager.CurrentProfileName})";
 
                 if (HiddenFrames.Count > 0)
                 {

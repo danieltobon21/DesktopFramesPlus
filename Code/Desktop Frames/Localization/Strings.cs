@@ -170,7 +170,7 @@ namespace Desktop_Frames.Localization
             {
                 string baseDir = AppDomain.CurrentDomain.BaseDirectory;
                 foreach (string dir in Directory.GetDirectories(baseDir))
-                    if (File.Exists(Path.Combine(dir, "Desktop Frames.resources.dll")))
+                    if (File.Exists(Path.Combine(dir, System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".resources.dll")))
                         Add(Path.GetFileName(dir));
             }
             catch (Exception) { }
