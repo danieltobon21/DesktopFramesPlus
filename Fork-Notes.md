@@ -37,7 +37,16 @@ pero **no hay release publicado con él**: el último release es 2.7.7.294 (8-ju
 que es exactamente el que está instalado. Es decir: no se arregla actualizando; hay
 que compilar desde el código.
 
-## 2. Qué cambia esta rama `fix/border-persistence`
+## 2. Ramas y build desplegada
+
+- `fix/border-persistence` — el fix aplicado sobre `main` upstream (2.7.8.358, código dev).
+- `dani/stable` — **el fix aplicado sobre el código del release 2.7.7.294**, que es la
+  build instalada. Se eligió esta base para no meter código dev sin publicar (~28k líneas
+  de diferencia: localización, TabManager, etc.) en la máquina de trabajo diario.
+  Versión compilada: **2.7.7.295** (así se distingue de la 2.7.7.294 del autor).
+- Cuando upstream publique 2.7.8.x, `fix/border-persistence` ya trae el fix listo.
+
+### Qué cambia exactamente
 
 - `FrameDataManager.ConsolidateKey`: reescrito. Ya no borra la clave oficial (se
   ignoran las entradas legacy que sean iguales a ella), solo migra nombres
